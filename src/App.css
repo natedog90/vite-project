@@ -1,0 +1,152 @@
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f0f2f5;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #222;
+}
+
+#root {
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* Navigation styles (compact) */
+.navbar {
+  background-color: rgb(28, 28, 115); /* keep it subtle */
+  padding: 2.5rem 2; /* smaller vertical padding */
+  margin-bottom: 2.55rem;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 3rem; /* tighter spacing */
+  margin: 2;
+  padding: 2;
+}
+
+.navbar a {
+  color: hwb(234 15% 62%);
+  text-decoration: none;
+  padding: 1.5rem 1.5rem; /* compact clickable area */
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: background-color 0.18s ease, transform 0.18s ease;
+}
+
+.navbar a:hover {
+  background-color: lab(#133b57);
+  transform: translateY(-1px);
+}
+
+/* Main layout */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+/* Sidebar styles */
+.sidebar {
+  width: 300px;
+  flex-shrink: 0;
+  background-color: white;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  position: sticky;
+  top: 1.25rem;
+}
+
+.profile-img {
+  width: 100%;
+  aspect-ratio: 1/1; /* Perfect square ratio */
+  object-fit: cover; /* This will ensure the image fills the space without stretching */
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+  transition: transform 0.18s ease;
+}
+
+.profile-img:hover {
+  transform: scale(1.02); /* Subtle zoom effect on hover */
+}
+
+.sidebar h1 {
+  color: rgb(0, 0, 0);
+  margin: 0 0 0.75rem 0;
+  font-size: 1.25rem;
+  border-bottom: 2px solid rgba(68, 113, 205, 0.12);
+  padding-bottom: 0.45rem;
+}
+
+.sidebar p {
+  color: rgb(0, 0, 0);
+  line-height: 1.5;
+  font-size: 1rem;
+}
+
+/* Main content styles */
+.main-content {
+  flex: 1;
+  background-color: #133b57;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+}
+
+#main-title {
+  color: rgb(255, 255, 255);
+  margin: 0 0 2rem 0;
+  font-size: 2rem;
+  border-bottom: 2px solid rgb(68, 113, 205);
+  padding-bottom: 0.5rem;
+}
+
+#dev-log {
+  color: rgb(245, 238, 238);
+}
+
+#dev-log h1 {
+  color: rgb(249, 249, 249);
+  font-size: 1.75rem;
+  margin: 0 0 1.5rem 0;
+}
+
+#dev-log p {
+  margin: 0.75rem 0;
+  line-height: 1.6;
+  font-size: 1.1rem;
+  color: rgb(102, 102, 102);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    flex: none;
+    width: 90%;
+  }
+
+  .profile-img {
+    height: 300px;
+  }
+}
