@@ -201,27 +201,70 @@ body {
 
 /* Responsive design */
 @media (max-width: 768px) {
+  .navbar {
+    padding: 1rem;
+  }
+
+  .navbar ul {
+    gap: 1.5rem;
+  }
+
+  .navbar a {
+    font-size: 0.85rem;
+    padding: 0.4rem 0.8rem;
+  }
+
   .container {
     flex-direction: column;
+    padding: 0 1rem;
+    margin: 1rem auto;
   }
 
   .sidebar {
-    flex: none;
-    width: 90%;
-    margin-left: 0; /* Added: removes negative margin on mobile */
+    width: 100%;
+    margin-left: 0;
+    position: static;
   }
 
   .profile-img {
-    height: 300px;
+    height: auto;
+    max-height: 300px;
   }
 
-  .preview-img {
-    width: 100%; /* Added: full width on mobile */
-    height: 250px; /* Added: shorter height on mobile */
+  .main-content {
+    padding: 1.5rem 1rem;
+  }
+
+  .title-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  #main-title {
+    font-size: 1.5rem;
+    margin: 0;
   }
 
   .arrow-button {
-    bottom: 1rem; /* Added: adjust position on mobile */
-    right: 1rem;
+    padding: 0.8rem 1.2rem;
+    font-size: 0.9rem;
+    align-self: flex-start;
+  }
+
+  #dev-log p {
+    font-size: 1rem;
+    line-height: 1.8;
+  }
+
+  .gallery-preview {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+    padding: 0.75rem;
+  }
+
+  .preview-img {
+    width: 100%;
+    height: 200px;
   }
 }
