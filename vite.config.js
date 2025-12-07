@@ -4,5 +4,5 @@ import react from "@vitejs/plugin-react";
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: "/myportfolio/", // Must match exact repo name
+  base: "/portfolio/", // Changed from /myportfolio/ to /portfolio/
 });
