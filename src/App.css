@@ -8,10 +8,11 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: white; /* Changed to white */
+  background-color: white;
   font-family: Arial, sans-serif;
   line-height: 1.6;
   color: #397cf0;
+  overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 #root {
@@ -55,7 +56,7 @@ body {
   width: 100%;
   max-width: 1200px;
   margin: 2rem auto;
-  padding: 0 1rem;
+  padding: 0 2rem; /* Increased from 1rem to give more space */
   display: flex;
   gap: 2rem;
   align-items: flex-start;
@@ -71,7 +72,7 @@ body {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
   position: sticky;
   top: 1.25rem;
-  margin-left: -90px;
+  margin-left: 0; /* Changed from -90px to 0 */
   margin-right: auto;
 }
 
