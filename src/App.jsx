@@ -6,21 +6,65 @@ import galleryImage3 from "./assets/DSC_1492_1-01.jpeg";
 import galleryImage4 from "./assets/DSC_0060.jpg";
 import LogCard from "./components/LogCard";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 function App() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
     <>
       <LogCard />
       <nav className="navbar">
-        <ul>
+        <button
+          className="hamburger"
+          onClick={toggleMenu}
+          aria-label="Toggle menu"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <ul className={isMenuOpen ? "nav-menu active" : "nav-menu"}>
           <li>
-            <a href="#main-content">home</a>
+            <Link to="/" onClick={toggleMenu}>
+              home
+            </Link>
+          </li>
+          <li>
+            <Link to="/leadership" onClick={toggleMenu}>
+              leadership
+            </Link>
+          </li>
+          <li>
+            <Link to="/business" onClick={toggleMenu}>
+              business
+            </Link>
+          </li>
+          <li>
+            <Link to="/tech" onClick={toggleMenu}>
+              tech
+            </Link>
+          </li>
+          <li>
+            <Link to="/wellness" onClick={toggleMenu}>
+              wellness
+            </Link>
+          </li>
+          <li>
+            <Link to="/career-planning" onClick={toggleMenu}>
+              career planning
+            </Link>
           </li>
           <li>
             <a
               href="https://www.linkedin.com"
               target="_blank"
               rel="noopener noreferrer"
+              onClick={toggleMenu}
             >
               linked in
             </a>
