@@ -55,6 +55,11 @@ function Gallery() {
             </Link>
           </li>
           <li>
+            <Link to="/resume" onClick={toggleMenu}>
+              resume
+            </Link>
+          </li>
+          <li>
             <a
               href="https://www.linkedin.com"
               target="_blank"

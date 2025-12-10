@@ -3,7 +3,7 @@ import { useState } from "react";
 import LogCard from "./LogCard";
 import "../App.css";
 
-function Tech() {
+function ResumePage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -72,44 +72,11 @@ function Tech() {
         </ul>
       </nav>
       <div className="page-container">
-        <h1 className="page-header">Tech</h1>
-        <div className="page-content">
-          <h2>Geek Week</h2>
-          <p>
-            Geek Week was a trial by fire. We were pushed to complete 15
-            technical tasks—SQL queries, Excel formulas, and more. It wasn't
-            easy, but it taught me resilience, focus, and how to learn under
-            pressure.
-          </p>
-
-          <h2>Tech Stack</h2>
-          <p>
-            From there, I began building my portfolio—an application that
-            showcases everything I've learned. My tech stack became my toolkit:
-            Power BI for visualization, SQL for data, Azure Cognitive Services
-            for intelligence, and React for building interactive solutions.
-            Alongside these, tools like Google Drive, Microsoft Teams, and
-            Trello kept me organized and collaborative.
-          </p>
-
-          <h2>5-Hour Minimum Study</h2>
-          <p>
-            I committed to studying at least five hours a week. That discipline
-            turned practice into mastery. Each week, I wasn't just learning
-            tools—I was building confidence, sharpening my skills, and preparing
-            myself to solve real-world problems.
-          </p>
-
-          <h2>Closing</h2>
-          <p>
-            Geek Week gave me grit, my tech stack gave me power, and my study
-            routine gave me growth. Together, they shaped me into someone ready
-            to use technology not just to build apps, but to create impact.
-          </p>
-        </div>
+        <h1 className="page-header">Resume</h1>
+        <div className="page-content">{/* Add your resume content here */}</div>
       </div>
     </>
   );
 }
 
-export default Tech;
+export default ResumePage;

@@ -9,6 +9,7 @@ import Tech from "./components/Tech.jsx";
 import Wellness from "./components/Wellness.jsx";
 import CareerPlanning from "./components/CareerPlanning.jsx";
 import Gallery from "./components/Gallery.jsx";
+import ResumePage from "./components/ResumePage.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -20,6 +21,7 @@ createRoot(document.getElementById("root")).render(
         <Route path="/tech" element={<Tech />} />
         <Route path="/wellness" element={<Wellness />} />
         <Route path="/career-planning" element={<CareerPlanning />} />
+        <Route path="/resume" element={<ResumePage />} />
         <Route path="/gallery" element={<Gallery />} />
       </Routes>
     </BrowserRouter>

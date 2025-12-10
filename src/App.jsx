@@ -60,6 +60,11 @@ function App() {
             </Link>
           </li>
           <li>
+            <Link to="/resume" onClick={toggleMenu}>
+              resume
+            </Link>
+          </li>
+          <li>
             <a
               href="https://www.linkedin.com"
               target="_blank"
@@ -114,10 +119,12 @@ function App() {
           <div id="dev-log">
             <p>
               I created this website to highlight the skills and knowledge I
-              developed during my time at IC Stars, while also showcasing my
-              work as a photographer. The gallery features a curated selection
-              of my photography, and prints are available for purchase. I invite
-              you to explore and enjoy the collection
+              developed during my time at IC Stars, defined in 5 key categories
+              Buisness, Leadership, Wellness, career planning and the technology
+              ive learned throug out my internship while also showcasing my work
+              as a photographer. The gallery features a curated selection of my
+              photography, I invite you to explore and enjoy the collection of
+              photos ive tooken throug out the years.
             </p>
             <aside className="gallery-preview">
               <img
