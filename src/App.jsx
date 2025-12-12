@@ -101,6 +101,8 @@ function App() {
             className="profile-img"
             src={profileImage}
             alt="Nathan Jimenez"
+            loading="eager"
+            decoding="async"
           />
           <h1>About Me</h1>
           <p>
@@ -168,21 +170,29 @@ function App() {
                 src={galleryImage}
                 alt="Gallery preview"
                 className="preview-img"
+                loading="lazy"
+                decoding="async"
               />
               <img
                 src={galleryImage2}
                 alt="Gallery preview 2"
                 className="preview-img"
+                loading="lazy"
+                decoding="async"
               />
               <img
                 src={galleryImage3}
                 alt="Gallery preview 3"
                 className="preview-img"
+                loading="lazy"
+                decoding="async"
               />
               <img
                 src={galleryImage4}
                 alt="Gallery preview 4"
                 className="preview-img"
+                loading="lazy"
+                decoding="async"
               />
             </aside>
           </div>
