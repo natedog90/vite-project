@@ -94,28 +94,17 @@ function Business() {
   return (
     <>
       <LogCard />
-      <nav className="navbar-clean">
-        <button
-          className="hamburger-icon"
-          onClick={toggleMenu}
-          aria-label="Toggle menu"
-        >
-          <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
-            <rect x="4" y="7" width="22" height="3" rx="1.5" fill="white" />
-            <rect x="4" y="13.5" width="22" height="3" rx="1.5" fill="white" />
-            <rect x="4" y="20" width="22" height="3" rx="1.5" fill="white" />
-          </svg>
-        </button>
-        <h1 className="signature-name">Business</h1>
-        <a
-          href="https://www.linkedin.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="linkedin-link"
-        >
-          LinkedIn
-        </a>
-      </nav>
+      <button
+        className="hamburger-icon"
+        onClick={toggleMenu}
+        aria-label="Toggle menu"
+      >
+        <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
+          <rect x="4" y="7" width="22" height="3" rx="1.5" fill="white" />
+          <rect x="4" y="13.5" width="22" height="3" rx="1.5" fill="white" />
+          <rect x="4" y="20" width="22" height="3" rx="1.5" fill="white" />
+        </svg>
+      </button>
 
       <div className={`side-panel ${isMenuOpen ? "open" : ""}`}>
         <button
@@ -167,6 +156,10 @@ function Business() {
           <Link to="/resume" onClick={toggleMenu} className="panel-link">
             <span className="link-icon">📄</span>
             Resume
+          </Link>
+          <Link to="/gallery" onClick={toggleMenu} className="panel-link">
+            <span className="link-icon">📸</span>
+            Gallery
           </Link>
         </div>
       </div>
