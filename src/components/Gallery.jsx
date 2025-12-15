@@ -40,6 +40,8 @@ function Gallery() {
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [imageLoaded, setImageLoaded] = useState(true);
   const [fadeOut, setFadeOut] = useState(false);
+  const [showControls, setShowControls] = useState(true);
+  const [hideTimeout, setHideTimeout] = useState(null);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -86,6 +88,20 @@ function Gallery() {
     setIsFullscreen(!isFullscreen);
   };
 
+  const handleMouseMove = () => {
+    setShowControls(true);
+
+    if (hideTimeout) {
+      clearTimeout(hideTimeout);
+    }
+
+    const timeout = setTimeout(() => {
+      setShowControls(false);
+    }, 3000);
+
+    setHideTimeout(timeout);
+  };
+
   useEffect(() => {
     let interval;
     if (isPlaying) {
@@ -110,6 +126,22 @@ function Gallery() {
     window.addEventListener("keydown", handleKeyPress);
     return () => window.removeEventListener("keydown", handleKeyPress);
   }, [lightboxOpen, currentIndex]);
+
+  useEffect(() => {
+    if (lightboxOpen) {
+      setShowControls(true);
+
+      const timeout = setTimeout(() => {
+        setShowControls(false);
+      }, 3000);
+
+      setHideTimeout(timeout);
+
+      return () => {
+        if (timeout) clearTimeout(timeout);
+      };
+    }
+  }, [lightboxOpen]);
 
   return (
     <>
@@ -220,16 +252,26 @@ function Gallery() {
       </div>
 
       {lightboxOpen && (
-        <div className="lightbox" onClick={closeLightbox}>
+        <div
+          className="lightbox"
+          onClick={closeLightbox}
+          onMouseMove={handleMouseMove}
+        >
           <div
             className="lightbox-content"
             onClick={(e) => e.stopPropagation()}
           >
-            <button className="lightbox-close" onClick={closeLightbox}>
+            <button
+              className={`lightbox-close ${!showControls ? "auto-hide" : ""}`}
+              onClick={closeLightbox}
+            >
               ✕
             </button>
 
-            <button className="lightbox-prev" onClick={prevImage}>
+            <button
+              className={`lightbox-prev ${!showControls ? "auto-hide" : ""}`}
+              onClick={prevImage}
+            >
               ❮
             </button>
 
@@ -243,11 +285,18 @@ function Gallery() {
               decoding="async"
             />
 
-            <button className="lightbox-next" onClick={nextImage}>
+            <button
+              className={`lightbox-next ${!showControls ? "auto-hide" : ""}`}
+              onClick={nextImage}
+            >
               ❯
             </button>
 
-            <div className="lightbox-controls">
+            <div
+              className={`lightbox-controls ${
+                !showControls ? "auto-hide" : ""
+              }`}
+            >
               <button className="slideshow-btn" onClick={toggleSlideshow}>
                 {isPlaying ? "⏸ Pause" : "▶ Play Slideshow"}
               </button>

@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import LogCard from "./LogCard";
+import profilePhoto from "../assets/profile-photo.jpg";
 import "../App.css";
 
 function Home() {
@@ -99,8 +100,15 @@ function Home() {
               <Link to="/resume" className="cta-button primary">
                 View Resume
               </Link>
+              <div className="profile-photo-container">
+                <img
+                  src={profilePhoto}
+                  alt="Nathan Jimenez"
+                  className="profile-photo"
+                />
+              </div>
               <a
-                href="https://www.linkedin.com"
+                href="https://www.linkedin.com/in/Nathan-Jimenez-77"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="cta-button secondary"
