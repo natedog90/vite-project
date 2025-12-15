@@ -171,6 +171,12 @@ function Leadership() {
       {isMenuOpen && <div className="overlay" onClick={toggleMenu}></div>}
 
       <div className="page-container">
+        <div className="page-header">
+          <h1 className="page-hero-title">
+            <span className="highlight">Leadership Journey</span>
+          </h1>
+        </div>
+
         <div className="page-content">
           {/* Team Week */}
           <div className="content-card united-card interactive-card">

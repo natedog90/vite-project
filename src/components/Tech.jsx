@@ -188,6 +188,12 @@ ORDER BY sentiment_score DESC;`;
       {isMenuOpen && <div className="overlay" onClick={toggleMenu}></div>}
 
       <div className="page-container">
+        <div className="page-header">
+          <h1 className="page-hero-title">
+            <span className="highlight">Technical Excellence</span>
+          </h1>
+        </div>
+
         <div className="page-content">
           {/* Tech Stack Overview - Now at Top as Expandable Card */}
           <div className="content-card interactive-card">

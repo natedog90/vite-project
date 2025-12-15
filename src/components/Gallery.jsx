@@ -14,6 +14,11 @@ import riverBridges from "../assets/river-bridges.jpg";
 import chicagoTheater from "../assets/chicago-theater.jpg";
 import jellyfish from "../assets/jellyfish.jpg";
 import bridgeNight from "../assets/bridge-night.jpg";
+import chicagoNightSkyline from "../assets/chicago-night-skyline.jpg";
+import chicagoWaterSkyline from "../assets/chicago-water-skyline.jpg";
+import chicagoFireworks from "../assets/chicago-fireworks.jpg";
+import chicagoParkSkyline from "../assets/chicago-park-skyline.jpg";
+import chicagoBean from "../assets/chicago-bean.jpg";
 import "../App.css";
 
 const images = [
@@ -30,6 +35,11 @@ const images = [
   chicagoTheater,
   jellyfish,
   bridgeNight,
+  chicagoNightSkyline,
+  chicagoWaterSkyline,
+  chicagoFireworks,
+  chicagoParkSkyline,
+  chicagoBean,
 ];
 
 function Gallery() {
@@ -219,6 +229,12 @@ function Gallery() {
       {isMenuOpen && <div className="overlay" onClick={toggleMenu}></div>}
 
       <div className="page-container">
+        <div className="page-header">
+          <h1 className="page-hero-title">
+             <span className="highlight">Photography Gallery</span>
+          </h1>
+        </div>
+
         <div className="page-content">
           <div className="content-card">
             <h2>My Photography Portfolio</h2>

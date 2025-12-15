@@ -167,6 +167,12 @@ function Business() {
       {isMenuOpen && <div className="overlay" onClick={toggleMenu}></div>}
 
       <div className="page-container">
+        <div className="page-header">
+          <h1 className="page-hero-title">
+            <span className="highlight">Business Experience</span>
+          </h1>
+        </div>
+
         <div className="page-content">
           {/* United Airlines Project */}
           <div className="content-card united-card interactive-card">

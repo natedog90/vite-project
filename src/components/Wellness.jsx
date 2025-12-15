@@ -91,6 +91,12 @@ function Wellness() {
       {isMenuOpen && <div className="overlay" onClick={toggleMenu}></div>}
 
       <div className="page-container">
+        <div className="page-header">
+          <h1 className="page-hero-title">
+            <span className="highlight">Wellness Journey</span>
+          </h1>
+        </div>
+
         <div className="page-content">
           <div className="content-card interactive-card">
             <div
