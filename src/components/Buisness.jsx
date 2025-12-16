@@ -191,7 +191,7 @@ function Business() {
               className="card-header-interactive"
               onClick={() => toggleCard("analytics")}
             >
-              <h2>Business Analytics Overview 📊</h2>
+              <h2>Business Analytics Overview</h2>
               <span className="expand-icon">
                 {expandedCard === "analytics" ? "−" : "+"}
               </span>
@@ -272,7 +272,7 @@ function Business() {
                   className="card-header-interactive"
                   onClick={() => toggleCard("united")}
                 >
-                  <h2>United Airlines Project ✈️</h2>
+                  <h2>United Airlines Project</h2>
                   <span className="expand-icon">
                     {expandedCard === "united" ? "−" : "+"}
                   </span>
@@ -292,12 +292,12 @@ function Business() {
                   <div className="expanded-content">
                     <ul>
                       <li>
-                        📊 Built complex SQL queries for customer data analysis
+                        ◆ Built complex SQL queries for customer data analysis
                       </li>
-                      <li>🎨 Designed interactive Power BI dashboards</li>
-                      <li>🗂️ Created ERDs to structure data relationships</li>
-                      <li>📈 Tracked NPS scores and sentiment trends</li>
-                      <li>💡 Transformed raw data into actionable insights</li>
+                      <li>■ Designed interactive Power BI dashboards</li>
+                      <li>◇ Created ERDs to structure data relationships</li>
+                      <li>► Tracked NPS scores and sentiment trends</li>
+                      <li>★ Transformed raw data into actionable insights</li>
                     </ul>
                   </div>
                 )}
@@ -320,7 +320,7 @@ function Business() {
                   className="card-header-interactive"
                   onClick={() => toggleCard("learning")}
                 >
-                  <h2>Learning and Growth 📚</h2>
+                  <h2>Learning and Growth</h2>
                   <span className="expand-icon">
                     {expandedCard === "learning" ? "−" : "+"}
                   </span>
@@ -337,22 +337,22 @@ function Business() {
                   <div className="expanded-content">
                     <div className="mission-grid">
                       <div className="mission-item">
-                        <span className="mission-emoji">🤝</span>
+                        <span className="mission-emoji">◆</span>
                         <h4>Collaboration</h4>
                         <p>Working together to solve complex problems</p>
                       </div>
                       <div className="mission-item">
-                        <span className="mission-emoji">👨‍🏫</span>
+                        <span className="mission-emoji">★</span>
                         <h4>Mentorship</h4>
                         <p>Learning from experienced professionals</p>
                       </div>
                       <div className="mission-item">
-                        <span className="mission-emoji">💪</span>
+                        <span className="mission-emoji">►</span>
                         <h4>Persistence</h4>
                         <p>Turning challenges into opportunities</p>
                       </div>
                       <div className="mission-item">
-                        <span className="mission-emoji">🚀</span>
+                        <span className="mission-emoji">✦</span>
                         <h4>Innovation</h4>
                         <p>Creating cutting-edge solutions</p>
                       </div>
@@ -378,7 +378,7 @@ function Business() {
                   className="card-header-interactive"
                   onClick={() => toggleCard("industry")}
                 >
-                  <h2>Industry Exposure 🏢</h2>
+                  <h2>Industry Exposure</h2>
                   <span className="expand-icon">
                     {expandedCard === "industry" ? "−" : "+"}
                   </span>
@@ -395,15 +395,14 @@ function Business() {
                   <div className="expanded-content">
                     <ul>
                       <li>
-                        ☁️ Salesforce - Learned about CRM and cloud solutions
+                        ◇ Salesforce - Learned about CRM and cloud solutions
                       </li>
                       <li>
-                        💼 Accenture - Witnessed enterprise consulting
-                        excellence
+                        ■ Accenture - Witnessed enterprise consulting excellence
                       </li>
-                      <li>🏋️ Equinox - Explored data in wellness industry</li>
-                      <li>🌐 Saw real-world applications of our skills</li>
-                      <li>🎯 Gained perspective on career opportunities</li>
+                      <li>♥ Equinox - Explored data in wellness industry</li>
+                      <li>● Saw real-world applications of our skills</li>
+                      <li>★ Gained perspective on career opportunities</li>
                     </ul>
                   </div>
                 )}
@@ -424,7 +423,7 @@ function Business() {
               className="card-header-interactive"
               onClick={() => toggleCard("closing")}
             >
-              <h2>Closing Reflection 💫</h2>
+              <h2>Closing Reflection</h2>
               <span className="expand-icon">
                 {expandedCard === "closing" ? "−" : "+"}
               </span>

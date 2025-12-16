@@ -11,6 +11,21 @@ import {
   Target,
   FileText,
   Camera,
+  TrendingUp,
+  Dumbbell,
+  Bed,
+  Utensils,
+  Zap,
+  Brain,
+  Moon,
+  Battery,
+  RefreshCw,
+  XCircle,
+  CheckCircle,
+  BookOpen,
+  MessageCircle,
+  Sparkles,
+  Leaf,
 } from "lucide-react";
 import "../App.css";
 
@@ -99,7 +114,7 @@ function Wellness() {
               className="card-header-interactive"
               onClick={() => toggleCard("financial")}
             >
-              <h2>Financial Mindfulness 💰</h2>
+              <h2>Financial Mindfulness</h2>
               <span className="expand-icon">
                 {expandedCard === "financial" ? "−" : "+"}
               </span>
@@ -122,26 +137,28 @@ function Wellness() {
                 <h3>Financial Wellness Practices</h3>
                 <ul>
                   <li>
-                    📊 Track spending to identify patterns and areas for
+                    <TrendingUp
+                      size={16}
+                      style={{ display: "inline", marginRight: "0.5rem" }}
+                    />
+                    Track spending to identify patterns and areas for
                     improvement
                   </li>
                   <li>
-                    🎯 Set realistic financial goals aligned with personal
-                    values
+                    ◆ Set realistic financial goals aligned with personal values
                   </li>
                   <li>
-                    💡 Recognize emotional triggers that lead to impulse
-                    spending
+                    ► Recognize emotional triggers that lead to impulse spending
                   </li>
                   <li>
-                    📈 Build an emergency fund for stability and peace of mind
+                    ▲ Build an emergency fund for stability and peace of mind
                   </li>
                   <li>
-                    🏦 Invest in skills and education that increase earning
+                    ★ Invest in skills and education that increase earning
                     potential
                   </li>
                   <li>
-                    🤝 Prioritize experiences and relationships over material
+                    ♥ Prioritize experiences and relationships over material
                     things
                   </li>
                 </ul>
@@ -159,7 +176,7 @@ function Wellness() {
               className="card-header-interactive"
               onClick={() => toggleCard("physical")}
             >
-              <h2>Physical Wellness 🏋️</h2>
+              <h2>Physical Wellness</h2>
               <span className="expand-icon">
                 {expandedCard === "physical" ? "−" : "+"}
               </span>
@@ -175,22 +192,22 @@ function Wellness() {
               <div className="expanded-content">
                 <div className="mission-grid">
                   <div className="mission-item">
-                    <span className="mission-emoji">💪</span>
+                    <Dumbbell size={32} color="white" />
                     <h4>Strength Training</h4>
                     <p>Building physical resilience and mental toughness</p>
                   </div>
                   <div className="mission-item">
-                    <span className="mission-emoji">🧖</span>
+                    <Heart size={32} color="white" />
                     <h4>Sauna Sessions</h4>
                     <p>Stress relief, better circulation, and mental clarity</p>
                   </div>
                   <div className="mission-item">
-                    <span className="mission-emoji">😴</span>
+                    <Moon size={32} color="white" />
                     <h4>Quality Sleep</h4>
                     <p>7-8 hours nightly for recovery and focus</p>
                   </div>
                   <div className="mission-item">
-                    <span className="mission-emoji">🥗</span>
+                    <Utensils size={32} color="white" />
                     <h4>Nutrition</h4>
                     <p>Fueling my body for optimal performance</p>
                   </div>
@@ -198,12 +215,12 @@ function Wellness() {
                 <h3>Benefits I've Experienced</h3>
                 <ul>
                   <li>
-                    ⚡ Increased energy and productivity throughout the day
+                    ► Increased energy and productivity throughout the day
                   </li>
-                  <li>🧠 Better mental clarity and focus on complex tasks</li>
-                  <li>😌 Reduced stress and improved emotional regulation</li>
-                  <li>💤 Deeper, more restful sleep</li>
-                  <li>🔋 Greater resilience when facing challenges</li>
+                  <li>◆ Better mental clarity and focus on complex tasks</li>
+                  <li>♥ Reduced stress and improved emotional regulation</li>
+                  <li>◇ Deeper, more restful sleep</li>
+                  <li>★ Greater resilience when facing challenges</li>
                 </ul>
               </div>
             )}
@@ -214,7 +231,7 @@ function Wellness() {
               className="card-header-interactive"
               onClick={() => toggleCard("mental")}
             >
-              <h2>Mental Health & Self-Talk 🧠</h2>
+              <h2>Mental Health & Self-Talk</h2>
               <span className="expand-icon">
                 {expandedCard === "mental" ? "−" : "+"}
               </span>
@@ -232,37 +249,37 @@ function Wellness() {
                 <h3>Combating Negative Self-Talk</h3>
                 <div className="mission-grid">
                   <div className="mission-item">
-                    <span className="mission-emoji">❌</span>
+                    <XCircle size={32} color="#EF4444" />
                     <h4>Old Mindset</h4>
                     <p>"I'm not good enough"</p>
                   </div>
                   <div className="mission-item">
-                    <span className="mission-emoji">✅</span>
+                    <CheckCircle size={32} color="#10B981" />
                     <h4>New Mindset</h4>
                     <p>"I'm learning and growing every day"</p>
                   </div>
                   <div className="mission-item">
-                    <span className="mission-emoji">❌</span>
+                    <XCircle size={32} color="#EF4444" />
                     <h4>Old Mindset</h4>
                     <p>"I don't belong here"</p>
                   </div>
                   <div className="mission-item">
-                    <span className="mission-emoji">✅</span>
+                    <CheckCircle size={32} color="#10B981" />
                     <h4>New Mindset</h4>
                     <p>"I belong in spaces where I bring value"</p>
                   </div>
                 </div>
                 <h3>Mental Wellness Tools</h3>
                 <ul>
-                  <li>📔 Daily journaling to process thoughts and emotions</li>
-                  <li>🧘 Mindfulness and meditation practices</li>
-                  <li>💬 Talking with mentors and trusted friends</li>
+                  <li>◆ Daily journaling to process thoughts and emotions</li>
+                  <li>◇ Mindfulness and meditation practices</li>
+                  <li>► Talking with mentors and trusted friends</li>
                   <li>
-                    🎯 Setting realistic expectations and celebrating small wins
+                    ★ Setting realistic expectations and celebrating small wins
                   </li>
-                  <li>🛑 Taking breaks when feeling overwhelmed</li>
+                  <li>● Taking breaks when feeling overwhelmed</li>
                   <li>
-                    🌱 Embracing vulnerability as a strength, not a weakness
+                    ♥ Embracing vulnerability as a strength, not a weakness
                   </li>
                 </ul>
               </div>
@@ -274,7 +291,7 @@ function Wellness() {
               className="card-header-interactive"
               onClick={() => toggleCard("affirmations")}
             >
-              <h2>Affirmations ✨</h2>
+              <h2>Affirmations</h2>
               <span className="expand-icon">
                 {expandedCard === "affirmations" ? "−" : "+"}
               </span>
@@ -314,7 +331,7 @@ function Wellness() {
               className="card-header-interactive"
               onClick={() => toggleCard("closing")}
             >
-              <h2>Closing Reflection 🌟</h2>
+              <h2>Closing Reflection</h2>
               <span className="expand-icon">
                 {expandedCard === "closing" ? "−" : "+"}
               </span>
@@ -329,20 +346,20 @@ function Wellness() {
                 <h3>Key Takeaways</h3>
                 <ul>
                   <li>
-                    🌱 Wellness is holistic—physical, mental, and financial
+                    ♥ Wellness is holistic—physical, mental, and financial
                     health are interconnected
                   </li>
                   <li>
-                    💪 Self-care isn't selfish—it's necessary for sustained
+                    ★ Self-care isn't selfish—it's necessary for sustained
                     success
                   </li>
-                  <li>🧠 Changing your mindset changes your reality</li>
-                  <li>📔 Vulnerability and reflection are signs of strength</li>
+                  <li>◆ Changing your mindset changes your reality</li>
+                  <li>◇ Vulnerability and reflection are signs of strength</li>
                   <li>
-                    ⚖️ Balance is not about perfection—it's about making
+                    ⚖ Balance is not about perfection—it's about making
                     intentional choices
                   </li>
-                  <li>🎯 Small, consistent actions create lasting change</li>
+                  <li>► Small, consistent actions create lasting change</li>
                 </ul>
                 <blockquote className="reflection-quote">
                   "Resilience isn't about never falling—it's about getting back

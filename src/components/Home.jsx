@@ -13,14 +13,20 @@ import {
   Home as HomeIcon,
   FileText,
   Linkedin,
+  ArrowRight,
 } from "lucide-react";
 import "../App.css";
 
 function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isProfileFlipped, setIsProfileFlipped] = useState(false);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+
+  const toggleProfileFlip = () => {
+    setIsProfileFlipped(!isProfileFlipped);
   };
 
   return (
@@ -98,11 +104,46 @@ function Home() {
                 View Resume
               </Link>
               <div className="profile-photo-container">
-                <img
-                  src={profilePhoto}
-                  alt="Nathan Jimenez"
-                  className="profile-photo"
-                />
+                <div
+                  className={`profile-flip-card ${
+                    isProfileFlipped ? "flipped" : ""
+                  }`}
+                >
+                  <div className="profile-flip-card-inner">
+                    <div className="profile-flip-card-front">
+                      <img
+                        src={profilePhoto}
+                        alt="Nathan Jimenez"
+                        className="profile-photo"
+                      />
+                    </div>
+                    <div className="profile-flip-card-back">
+                      <h3>Welcome!</h3>
+                      <p>
+                        This site shares my journey at{" "}
+                        <strong>I.C. Stars</strong>—a blend of growth, learning,
+                        and creativity.
+                      </p>
+                      <p>Explore and discover my experiences!</p>
+                    </div>
+                  </div>
+                </div>
+                <button
+                  className="flip-cta-button"
+                  onClick={toggleProfileFlip}
+                  aria-label="About Me"
+                >
+                  <span>About my site</span>
+                  <ArrowRight
+                    size={16}
+                    style={{
+                      transform: isProfileFlipped
+                        ? "rotate(180deg)"
+                        : "rotate(0deg)",
+                      transition: "transform 0.3s ease",
+                    }}
+                  />
+                </button>
               </div>
               <a
                 href="https://www.linkedin.com/feed/"

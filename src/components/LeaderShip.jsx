@@ -14,6 +14,15 @@ import {
   Target,
   FileText,
   Camera,
+  Rocket,
+  Handshake,
+  Music,
+  Star,
+  Sparkles,
+  MessageCircle,
+  Clock,
+  Palette,
+  Award,
 } from "lucide-react";
 import "../App.css";
 
@@ -61,11 +70,25 @@ function Leadership() {
     }
   };
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setSkills({
+        empathy: 95,
+        communication: 90,
+        patience: 85,
+        creativity: 88,
+        encouragement: 92,
+      });
+    }, 500);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   const leadershipSkills = [
     {
       name: "Empathy",
       level: skills.empathy,
-      icon: "❤️",
+      icon: "♥",
       color: "#EF4444",
     },
     {
@@ -77,19 +100,19 @@ function Leadership() {
     {
       name: "Patience",
       level: skills.patience,
-      icon: "⏳",
+      icon: "⌛",
       color: "#8B5CF6",
     },
     {
       name: "Creativity",
       level: skills.creativity,
-      icon: "🎨",
+      icon: "✦",
       color: "#F59E0B",
     },
     {
       name: "Encouragement",
       level: skills.encouragement,
-      icon: "⭐",
+      icon: "★",
       color: "#10B981",
     },
   ];
@@ -97,25 +120,25 @@ function Leadership() {
   const milestones = [
     {
       title: "Team Week",
-      icon: "🚀",
+      icon: "→",
       description: "The spark that started it all",
       color: "#3B82F6",
     },
     {
       title: "Tea Host",
-      icon: "🤝",
+      icon: "◆",
       description: "Building meaningful connections",
       color: "#10B981",
     },
     {
       title: "Cohort Soundtrack",
-      icon: "🎵",
+      icon: "♪",
       description: "Celebrating our stories through music",
       color: "#F59E0B",
     },
     {
       title: "Living My Mission",
-      icon: "💫",
+      icon: "✓",
       description: "Leading with love every day",
       color: "#EF4444",
     },
@@ -195,7 +218,7 @@ function Leadership() {
               className="card-header-interactive"
               onClick={() => toggleCard("leadership-overview")}
             >
-              <h2>Leadership Journey Overview 💫</h2>
+              <h2>Leadership Journey Overview</h2>
               <span className="expand-icon">
                 {expandedCard === "leadership-overview" ? "−" : "+"}
               </span>
@@ -268,7 +291,7 @@ function Leadership() {
                   className="card-header-interactive"
                   onClick={() => toggleCard("teamWeek")}
                 >
-                  <h2>Team Week 🚀</h2>
+                  <h2>Team Week</h2>
                   <span className="expand-icon">
                     {expandedCard === "teamWeek" ? "−" : "+"}
                   </span>
@@ -281,12 +304,12 @@ function Leadership() {
                 {expandedCard === "teamWeek" && (
                   <div className="expanded-content">
                     <ul>
-                      <li>✨ Met my incredible cohort for the first time</li>
+                      <li>★ Met my incredible cohort for the first time</li>
                       <li>
-                        🤝 Learned the power of collaborative problem-solving
+                        ◆ Learned the power of collaborative problem-solving
                       </li>
-                      <li>📊 Dove into real-world data challenges</li>
-                      <li>💡 Discovered my strengths as a team player</li>
+                      <li>■ Dove into real-world data challenges</li>
+                      <li>► Discovered my strengths as a team player</li>
                     </ul>
                   </div>
                 )}
@@ -309,7 +332,7 @@ function Leadership() {
                   className="card-header-interactive"
                   onClick={() => toggleCard("teaHost")}
                 >
-                  <h2>Tea Host 🤝</h2>
+                  <h2>Tea Host</h2>
                   <span className="expand-icon">
                     {expandedCard === "teaHost" ? "−" : "+"}
                   </span>
@@ -318,18 +341,15 @@ function Leadership() {
                   As Tea Host, I learned the power of connection. Hosting
                   industry professionals wasn't just networking—it was about
                   listening, sharing our journeys, and realizing that our voices
-                  matter. Special shoutout to Sandee Kastrul, CEO and co-founder
-                  of i.c.stars, whose vision and leadership created this
-                  transformative space where young leaders like us can grow,
-                  connect, and thrive.
+                  matter.
                 </p>
                 {expandedCard === "teaHost" && (
                   <div className="expanded-content">
                     <ul>
-                      <li>☕ Hosted industry leaders and professionals</li>
-                      <li>🎙️ Facilitated meaningful conversations</li>
-                      <li>🌟 Built connections that matter</li>
-                      <li>💼 Learned from diverse career paths</li>
+                      <li>◆ Hosted industry leaders and professionals</li>
+                      <li>► Facilitated meaningful conversations</li>
+                      <li>★ Built connections that matter</li>
+                      <li>● Learned from diverse career paths</li>
                     </ul>
                   </div>
                 )}
@@ -352,7 +372,7 @@ function Leadership() {
                   className="card-header-interactive"
                   onClick={() => toggleCard("soundtrack")}
                 >
-                  <h2>Cohort Soundtrack 🎵</h2>
+                  <h2>Cohort Soundtrack</h2>
                   <span className="expand-icon">
                     {expandedCard === "soundtrack" ? "−" : "+"}
                   </span>
@@ -365,10 +385,10 @@ function Leadership() {
                 {expandedCard === "soundtrack" && (
                   <div className="expanded-content">
                     <ul>
-                      <li>🎶 Curated songs that told our stories</li>
-                      <li>🎨 Expressed creativity through music selection</li>
-                      <li>💫 Celebrated each cohort member's journey</li>
-                      <li>🎧 Created lasting memories through sound</li>
+                      <li>♪ Curated songs that told our stories</li>
+                      <li>★ Expressed creativity through music selection</li>
+                      <li>◆ Celebrated each cohort member's journey</li>
+                      <li>● Created lasting memories through sound</li>
                     </ul>
                   </div>
                 )}
@@ -389,7 +409,7 @@ function Leadership() {
               className="card-header-interactive"
               onClick={() => toggleCard("mission")}
             >
-              <h2>My Mission 💫</h2>
+              <h2>My Mission</h2>
               <span className="expand-icon">
                 {expandedCard === "mission" ? "−" : "+"}
               </span>
@@ -405,7 +425,7 @@ function Leadership() {
               <div className="expanded-content">
                 <div className="mission-grid">
                   <div className="mission-item">
-                    <span className="mission-emoji">❤️</span>
+                    <span className="mission-emoji">♥</span>
                     <h4>Empathy</h4>
                     <p>Listening deeply to understand others</p>
                   </div>
@@ -415,17 +435,17 @@ function Leadership() {
                     <p>Speaking with clarity and purpose</p>
                   </div>
                   <div className="mission-item">
-                    <span className="mission-emoji">⏳</span>
+                    <span className="mission-emoji">⌛</span>
                     <h4>Patience</h4>
                     <p>Staying calm under pressure</p>
                   </div>
                   <div className="mission-item">
-                    <span className="mission-emoji">🎨</span>
+                    <span className="mission-emoji">✦</span>
                     <h4>Creativity</h4>
                     <p>Creating meaningful experiences</p>
                   </div>
                   <div className="mission-item">
-                    <span className="mission-emoji">⭐</span>
+                    <span className="mission-emoji">★</span>
                     <h4>Encouragement</h4>
                     <p>Lifting others to reach their potential</p>
                   </div>
@@ -440,7 +460,7 @@ function Leadership() {
               className="card-header-interactive"
               onClick={() => toggleCard("closing")}
             >
-              <h2>Closing Reflection 🌟</h2>
+              <h2>Closing Reflection</h2>
               <span className="expand-icon">
                 {expandedCard === "closing" ? "−" : "+"}
               </span>

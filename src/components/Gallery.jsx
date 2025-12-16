@@ -29,6 +29,12 @@ import {
   Target,
   FileText,
   Camera,
+  Play,
+  Pause,
+  Maximize,
+  Minimize,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
 import "../App.css";
 
@@ -118,7 +124,7 @@ function Gallery() {
 
     const timeout = setTimeout(() => {
       setShowControls(false);
-    }, 3000);
+    }, 2000);
 
     setHideTimeout(timeout);
   };
@@ -273,20 +279,48 @@ function Gallery() {
             className="lightbox-content"
             onClick={(e) => e.stopPropagation()}
           >
-            <button
-              className={`lightbox-close ${!showControls ? "auto-hide" : ""}`}
-              onClick={closeLightbox}
+            <div
+              className={`lightbox-controls ${
+                !showControls ? "auto-hide" : ""
+              }`}
             >
-              ✕
-            </button>
+              <button className="slideshow-btn" onClick={toggleSlideshow}>
+                {isPlaying ? (
+                  <>
+                    <Pause size={18} />
+                    Pause
+                  </>
+                ) : (
+                  <>
+                    <Play size={18} />
+                    Play
+                  </>
+                )}
+              </button>
+              <div className="image-counter">
+                {currentIndex + 1} / {images.length}
+              </div>
+              <button className="fullscreen-btn" onClick={toggleFullscreen}>
+                {isFullscreen ? (
+                  <>
+                    <Minimize size={18} />
+                    Exit
+                  </>
+                ) : (
+                  <>
+                    <Maximize size={18} />
+                    Fullscreen
+                  </>
+                )}
+              </button>
+            </div>
 
             <button
               className={`lightbox-prev ${!showControls ? "auto-hide" : ""}`}
               onClick={prevImage}
             >
-              ❮
+              <ChevronLeft size={28} />
             </button>
-
             <img
               src={images[currentIndex]}
               alt={`Gallery image ${currentIndex + 1}`}
@@ -296,29 +330,18 @@ function Gallery() {
               loading="eager"
               decoding="async"
             />
-
             <button
               className={`lightbox-next ${!showControls ? "auto-hide" : ""}`}
               onClick={nextImage}
             >
-              ❯
+              <ChevronRight size={28} />
             </button>
-
-            <div
-              className={`lightbox-controls ${
-                !showControls ? "auto-hide" : ""
-              }`}
+            <button
+              className={`lightbox-close ${!showControls ? "auto-hide" : ""}`}
+              onClick={closeLightbox}
             >
-              <button className="slideshow-btn" onClick={toggleSlideshow}>
-                {isPlaying ? "⏸ Pause" : "▶ Play Slideshow"}
-              </button>
-              <div className="image-counter">
-                {currentIndex + 1} / {images.length}
-              </div>
-              <button className="fullscreen-btn" onClick={toggleFullscreen}>
-                {isFullscreen ? "⊟ Fit Screen" : "⊡ Fullscreen"}
-              </button>
-            </div>
+              <X size={28} />
+            </button>
           </div>
         </div>
       )}

@@ -8,9 +8,26 @@ import {
   Briefcase,
   Code,
   Heart,
-  Target,
+  Target as TargetIcon,
   FileText,
   Camera,
+  Shield,
+  Users,
+  TrendingUp,
+  CheckSquare,
+  Award,
+  BarChart3,
+  Cloud,
+  Trophy,
+  Lightbulb,
+  Rocket,
+  GraduationCap,
+  Building,
+  CreditCard,
+  Globe,
+  BookOpen,
+  Linkedin,
+  Mail,
 } from "lucide-react";
 import "../App.css";
 
@@ -70,7 +87,7 @@ function CareerPlanning() {
             onClick={toggleMenu}
             className="panel-link"
           >
-            <Target size={24} />
+            <TargetIcon size={24} />
             Career Planning
           </Link>
           <Link to="/resume" onClick={toggleMenu} className="panel-link">
@@ -99,11 +116,12 @@ function CareerPlanning() {
               className="card-header-interactive"
               onClick={() => toggleCard("brand")}
             >
-              <h2>Personal Brand & Values 💎</h2>
+              <h2>Personal Brand & Values</h2>
               <span className="expand-icon">
                 {expandedCard === "brand" ? "−" : "+"}
               </span>
             </div>
+
             <p>
               When I think about my career path, I start with my personal brand.
               My values are integrity, loyalty, consistency, and reliability.
@@ -114,22 +132,22 @@ function CareerPlanning() {
               <div className="expanded-content">
                 <div className="mission-grid">
                   <div className="mission-item">
-                    <span className="mission-emoji">🛡️</span>
+                    <Shield size={32} color="white" />
                     <h4>Integrity</h4>
                     <p>Doing the right thing, even when no one is watching</p>
                   </div>
                   <div className="mission-item">
-                    <span className="mission-emoji">🤝</span>
+                    <Users size={32} color="white" />
                     <h4>Loyalty</h4>
                     <p>Standing by my team, family, and commitments</p>
                   </div>
                   <div className="mission-item">
-                    <span className="mission-emoji">📊</span>
+                    <TrendingUp size={32} color="white" />
                     <h4>Consistency</h4>
                     <p>Showing up and delivering quality work every day</p>
                   </div>
                   <div className="mission-item">
-                    <span className="mission-emoji">✅</span>
+                    <CheckSquare size={32} color="white" />
                     <h4>Reliability</h4>
                     <p>Being someone others can count on</p>
                   </div>
@@ -143,7 +161,7 @@ function CareerPlanning() {
               className="card-header-interactive"
               onClick={() => toggleCard("goals")}
             >
-              <h2>Career Goals 🎯</h2>
+              <h2>Career Goals</h2>
               <span className="expand-icon">
                 {expandedCard === "goals" ? "−" : "+"}
               </span>
@@ -167,36 +185,34 @@ function CareerPlanning() {
                 <h3>Short-Term Goals (1-2 Years)</h3>
                 <ul>
                   <li>
-                    🔐 Master cybersecurity fundamentals and obtain relevant
+                    ◆ Master cybersecurity fundamentals and obtain relevant
                     certifications
                   </li>
                   <li>
-                    📊 Strengthen SQL, Power BI, and data visualization skills
+                    ■ Strengthen SQL, Power BI, and data visualization skills
                   </li>
-                  <li>⚛️ Build production-ready applications with React</li>
+                  <li>● Build production-ready applications with React</li>
                   <li>
-                    ☁️ Gain hands-on experience with cloud platforms (AWS/Azure)
+                    ◇ Gain hands-on experience with cloud platforms (AWS/Azure)
                   </li>
-                  <li>
-                    💼 Secure a role as a Data Analyst or Junior Developer
-                  </li>
+                  <li>► Secure a role as a Data Analyst or Junior Developer</li>
                 </ul>
 
                 <h3>Long-Term Goals (5+ Years)</h3>
                 <ul>
                   <li>
-                    🏆 Become a recognized expert in data analytics and
+                    ★ Become a recognized expert in data analytics and
                     cybersecurity
                   </li>
                   <li>
-                    👔 Transition into leadership roles (Team Lead, Manager)
+                    ◆ Transition into leadership roles (Team Lead, Manager)
                   </li>
                   <li>
-                    💡 Launch consulting services to help businesses leverage
+                    ► Launch consulting services to help businesses leverage
                     data
                   </li>
-                  <li>🚀 Potentially start my own tech venture</li>
-                  <li>🎓 Mentor the next generation of technologists</li>
+                  <li>✦ Potentially start my own tech venture</li>
+                  <li>♥ Mentor the next generation of technologists</li>
                 </ul>
               </div>
             )}
@@ -207,7 +223,7 @@ function CareerPlanning() {
               className="card-header-interactive"
               onClick={() => toggleCard("mentorship")}
             >
-              <h2>Professionalism & Mentorship 👨‍🏫</h2>
+              <h2>Professionalism & Mentorship</h2>
               <span className="expand-icon">
                 {expandedCard === "mentorship" ? "−" : "+"}
               </span>
@@ -229,18 +245,16 @@ function CareerPlanning() {
                 <h3>Key Lessons Learned</h3>
                 <ul>
                   <li>
-                    📝 How to craft a compelling resume that tells my story
+                    ◆ How to craft a compelling resume that tells my story
                   </li>
                   <li>
-                    💬 Professional communication in emails, meetings, and
+                    ► Professional communication in emails, meetings, and
                     presentations
                   </li>
-                  <li>🎯 Setting clear goals and creating actionable plans</li>
+                  <li>★ Setting clear goals and creating actionable plans</li>
+                  <li>● The importance of follow-through and accountability</li>
                   <li>
-                    🔄 The importance of follow-through and accountability
-                  </li>
-                  <li>
-                    🌟 Building a personal brand that aligns with my values
+                    ✦ Building a personal brand that aligns with my values
                   </li>
                 </ul>
               </div>
@@ -250,57 +264,9 @@ function CareerPlanning() {
           <div className="content-card interactive-card">
             <div
               className="card-header-interactive"
-              onClick={() => toggleCard("workshops")}
-            >
-              <h2>Industry Workshops 🏢</h2>
-              <span className="expand-icon">
-                {expandedCard === "workshops" ? "−" : "+"}
-              </span>
-            </div>
-            <p>
-              The workshops with Accenture, Capital One, Salesforce, and other
-              employer partners gave me valuable insights into how industry
-              leaders approach technology and business. They reminded me that
-              the skills we're building at i.c.stars are directly connected to
-              the challenges companies face every day.
-            </p>
-            {expandedCard === "workshops" && (
-              <div className="expanded-content">
-                <div className="mission-grid">
-                  <div className="mission-item">
-                    <span className="mission-emoji">💼</span>
-                    <h4>Accenture</h4>
-                    <p>
-                      Enterprise consulting and digital transformation
-                      strategies
-                    </p>
-                  </div>
-                  <div className="mission-item">
-                    <span className="mission-emoji">💳</span>
-                    <h4>Capital One</h4>
-                    <p>Banking technology and data-driven decision making</p>
-                  </div>
-                  <div className="mission-item">
-                    <span className="mission-emoji">☁️</span>
-                    <h4>Salesforce</h4>
-                    <p>CRM platforms and customer experience innovation</p>
-                  </div>
-                  <div className="mission-item">
-                    <span className="mission-emoji">🌐</span>
-                    <h4>Tech Leaders</h4>
-                    <p>Real-world applications of emerging technologies</p>
-                  </div>
-                </div>
-              </div>
-            )}
-          </div>
-
-          <div className="content-card interactive-card">
-            <div
-              className="card-header-interactive"
               onClick={() => toggleCard("jobsearch")}
             >
-              <h2>Job Search Preparation 📄</h2>
+              <h2>Job Search Preparation</h2>
               <span className="expand-icon">
                 {expandedCard === "jobsearch" ? "−" : "+"}
               </span>
@@ -316,19 +282,15 @@ function CareerPlanning() {
                 <h3>Job Search Strategy</h3>
                 <ul>
                   <li>
-                    🎯 Target companies aligned with my values and career goals
+                    ◆ Target companies aligned with my values and career goals
                   </li>
+                  <li>► Tailor resume and cover letter for each application</li>
+                  <li>■ Leverage LinkedIn to build professional connections</li>
+                  <li>◇ Attend networking events and industry meetups</li>
                   <li>
-                    📝 Tailor resume and cover letter for each application
+                    ● Prepare for technical interviews with practice problems
                   </li>
-                  <li>
-                    🔗 Leverage LinkedIn to build professional connections
-                  </li>
-                  <li>🤝 Attend networking events and industry meetups</li>
-                  <li>
-                    💡 Prepare for technical interviews with practice problems
-                  </li>
-                  <li>📊 Track applications and follow up professionally</li>
+                  <li>★ Track applications and follow up professionally</li>
                 </ul>
               </div>
             )}
@@ -339,7 +301,7 @@ function CareerPlanning() {
               className="card-header-interactive"
               onClick={() => toggleCard("future")}
             >
-              <h2>Looking Ahead 🚀</h2>
+              <h2>Looking Ahead</h2>
               <span className="expand-icon">
                 {expandedCard === "future" ? "−" : "+"}
               </span>
@@ -357,22 +319,51 @@ function CareerPlanning() {
                   impact you create and the people you inspire along the way."
                 </blockquote>
                 <h3>My Vision for the Future</h3>
-                <ul>
-                  <li>
-                    🎓 Continuous learning through certifications and advanced
-                    training
-                  </li>
-                  <li>👥 Building and leading high-performing teams</li>
-                  <li>
-                    💡 Creating innovative solutions that solve real problems
-                  </li>
-                  <li>
-                    🌍 Using technology to make a positive impact in my
-                    community
-                  </li>
-                  <li>📈 Mentoring others on their career journeys</li>
-                  <li>🏆 Becoming a recognized thought leader in my field</li>
-                </ul>
+                <div className="mission-grid">
+                  <div className="mission-item">
+                    <span className="mission-emoji">★</span>
+                    <h4>Technical Mastery</h4>
+                    <p>Becoming an expert in data analytics</p>
+                  </div>
+                  <div className="mission-item">
+                    <span className="mission-emoji">◆</span>
+                    <h4>Leadership Growth</h4>
+                    <p>Inspiring and mentoring others</p>
+                  </div>
+                  <div className="mission-item">
+                    <span className="mission-emoji">►</span>
+                    <h4>Impact</h4>
+                    <p>Creating meaningful change</p>
+                  </div>
+                  <div className="mission-item">
+                    <span className="mission-emoji">✦</span>
+                    <h4>Innovation</h4>
+                    <p>Pushing boundaries of possibility</p>
+                  </div>
+                </div>
+                <h3>Milestones</h3>
+                <div className="mission-grid">
+                  <div className="mission-item">
+                    <span className="mission-emoji">→</span>
+                    <h4>2025</h4>
+                    <p>Complete I.C. Stars and land first role</p>
+                  </div>
+                  <div className="mission-item">
+                    <span className="mission-emoji">⌛</span>
+                    <h4>2026-2027</h4>
+                    <p>Advance to Senior Data Analyst</p>
+                  </div>
+                  <div className="mission-item">
+                    <span className="mission-emoji">★</span>
+                    <h4>2028-2030</h4>
+                    <p>Transition to Data Science/Leadership</p>
+                  </div>
+                  <div className="mission-item">
+                    <span className="mission-emoji">✦</span>
+                    <h4>Beyond</h4>
+                    <p>Lead data teams and mentor others</p>
+                  </div>
+                </div>
               </div>
             )}
           </div>

@@ -23,9 +23,9 @@ function Tech() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [skills, setSkills] = useState({
     sql: 0,
-    powerbi: 0,
-    excel: 0,
+    powerBI: 0,
     react: 0,
+    javascript: 0,
   });
   const [expandedCard, setExpandedCard] = useState(null);
 
@@ -41,46 +41,31 @@ function Tech() {
     if (cardName === "tech-overview" && newExpandedCard === "tech-overview") {
       setSkills({
         sql: 0,
-        powerbi: 0,
-        excel: 0,
+        powerBI: 0,
         react: 0,
+        javascript: 0,
       });
 
       setTimeout(() => {
         setSkills({
           sql: 75,
-          powerbi: 70,
-          excel: 80,
+          powerBI: 60,
           react: 65,
+          javascript: 45,
         });
       }, 100);
     }
   };
 
   const techSkills = [
+    { name: "SQL", level: skills.sql, icon: "◆", color: "#3B82F6" },
+    { name: "Power BI", level: skills.powerBI, icon: "■", color: "#F59E0B" },
+    { name: "React", level: skills.react, icon: "●", color: "#EF4444" },
     {
-      name: "SQL",
-      level: skills.sql,
-      icon: <Database size={24} color="white" />,
-      color: "#0078D4",
-    },
-    {
-      name: "Power BI",
-      level: skills.powerbi,
-      icon: <BarChart3 size={24} color="white" />,
-      color: "#F2C811",
-    },
-    {
-      name: "Excel",
-      level: skills.excel,
-      icon: <FileSpreadsheet size={24} color="white" />,
-      color: "#217346",
-    },
-    {
-      name: "React",
-      level: skills.react,
-      icon: <Code size={24} color="white" />,
-      color: "#61DAFB",
+      name: "JavaScript",
+      level: skills.javascript,
+      icon: "▲",
+      color: "#8B5CF6",
     },
   ];
 
@@ -155,7 +140,7 @@ ORDER BY sentiment_score DESC;`;
         onClick={toggleMenu}
         aria-label="Toggle menu"
       >
-        <Menu size={30} color="white" />
+        <span style={{ fontSize: "2rem" }}>🍔</span>
       </button>
 
       <div className={`side-panel ${isMenuOpen ? "open" : ""}`}>
@@ -222,7 +207,7 @@ ORDER BY sentiment_score DESC;`;
               className="card-header-interactive"
               onClick={() => toggleCard("tech-overview")}
             >
-              <h2>Tech Stack Overview 💻</h2>
+              <h2>Tech Stack Overview</h2>
               <span className="expand-icon">
                 {expandedCard === "tech-overview" ? "−" : "+"}
               </span>
@@ -271,14 +256,15 @@ ORDER BY sentiment_score DESC;`;
               className="card-header-interactive"
               onClick={() => toggleCard("projects")}
             >
-              <h2>Featured Projects 🚀</h2>
+              <h2>Featured Projects</h2>
               <span className="expand-icon">
                 {expandedCard === "projects" ? "−" : "+"}
               </span>
             </div>
             <p>
               Click on each project card to see more details and technologies
-              used.
+              used as i continue my tech journey i will be adding more to
+              showcase.
             </p>
             {expandedCard === "projects" && (
               <div className="expanded-content">
@@ -292,7 +278,7 @@ ORDER BY sentiment_score DESC;`;
                   >
                     <div className="flip-card-inner">
                       <div className="flip-card-front">
-                        <h3>✈️ United Airlines Dashboard</h3>
+                        <h3>► United Airlines Dashboard</h3>
                         <p>Interactive Power BI analytics platform</p>
                         <span className="flip-hint">
                           Click to see details →
@@ -301,10 +287,10 @@ ORDER BY sentiment_score DESC;`;
                       <div className="flip-card-back">
                         <h3>Technologies Used</h3>
                         <ul>
-                          <li>📊 Power BI</li>
-                          <li>🗄️ SQL Server</li>
-                          <li>📈 DAX</li>
-                          <li>🔄 ETL Processes</li>
+                          <li>■ Power BI</li>
+                          <li>◆ SQL Server</li>
+                          <li>▲ DAX</li>
+                          <li>● ETL Processes</li>
                         </ul>
                         <p className="project-description">
                           Built comprehensive dashboards tracking customer
@@ -324,7 +310,7 @@ ORDER BY sentiment_score DESC;`;
                   >
                     <div className="flip-card-inner">
                       <div className="flip-card-front">
-                        <h3>💼 Portfolio Website</h3>
+                        <h3>◆ Portfolio Website</h3>
                         <p>Modern React-based personal portfolio</p>
                         <span className="flip-hint">
                           Click to see details →
@@ -333,10 +319,10 @@ ORDER BY sentiment_score DESC;`;
                       <div className="flip-card-back">
                         <h3>Technologies Used</h3>
                         <ul>
-                          <li>⚛️ React</li>
-                          <li>🎨 CSS3</li>
-                          <li>🔀 React Router</li>
-                          <li>📱 Responsive Design</li>
+                          <li>● React</li>
+                          <li>★ CSS3</li>
+                          <li>► React Router</li>
+                          <li>◇ Responsive Design</li>
                         </ul>
                         <p className="project-description">
                           Interactive portfolio showcasing my journey in tech,
@@ -356,7 +342,7 @@ ORDER BY sentiment_score DESC;`;
                       textAlign: "center",
                     }}
                   >
-                    📊 Innovation Dashboard
+                    ■ Innovation Dashboard
                   </h3>
                   <div className="powerbi-iframe-wrapper">
                     <iframe
@@ -379,7 +365,7 @@ ORDER BY sentiment_score DESC;`;
               className="card-header-interactive"
               onClick={() => toggleCard("code")}
             >
-              <h2>Code in Action 💻</h2>
+              <h2>Code in Action</h2>
               <span className="expand-icon">
                 {expandedCard === "code" ? "−" : "+"}
               </span>
@@ -403,26 +389,26 @@ ORDER BY sentiment_score DESC;`;
                     {sqlExample}
                   </SyntaxHighlighter>
                 </div>
-                <div className="mission-grid" style={{ marginTop: "1.5rem" }}>
+                <div className="mission-grid">
                   <div className="mission-item">
-                    <span className="mission-emoji">🔍</span>
+                    <span className="mission-emoji">◆</span>
                     <h4>Data Filtering</h4>
-                    <p>WHERE clause for date-based filtering</p>
+                    <p>Extracting relevant information using WHERE clauses</p>
                   </div>
                   <div className="mission-item">
-                    <span className="mission-emoji">📊</span>
+                    <span className="mission-emoji">Σ</span>
                     <h4>Aggregation</h4>
-                    <p>GROUP BY for customer insights</p>
+                    <p>Summarizing data with SUM, AVG, COUNT functions</p>
                   </div>
                   <div className="mission-item">
-                    <span className="mission-emoji">🎯</span>
-                    <h4>Sorting</h4>
-                    <p>ORDER BY for priority ranking</p>
+                    <span className="mission-emoji">∞</span>
+                    <h4>Joins</h4>
+                    <p>Combining multiple tables for comprehensive analysis</p>
                   </div>
                   <div className="mission-item">
-                    <span className="mission-emoji">📈</span>
-                    <h4>Analytics</h4>
-                    <p>COUNT for feedback metrics</p>
+                    <span className="mission-emoji">✓</span>
+                    <h4>Data Validation</h4>
+                    <p>Ensuring accuracy and consistency in results</p>
                   </div>
                 </div>
               </div>
@@ -435,7 +421,7 @@ ORDER BY sentiment_score DESC;`;
               className="card-header-interactive"
               onClick={() => toggleCard("growth")}
             >
-              <h2>Technical Growth 🌱</h2>
+              <h2>Technical Growth</h2>
               <span className="expand-icon">
                 {expandedCard === "growth" ? "−" : "+"}
               </span>
@@ -455,12 +441,12 @@ ORDER BY sentiment_score DESC;`;
                   meaningful."
                 </blockquote>
                 <ul>
-                  <li>📐 Designed complex ERDs for data modeling</li>
-                  <li>🔎 Wrote advanced SQL queries for analysis</li>
-                  <li>📊 Built interactive Power BI dashboards</li>
-                  <li>⚛️ Developed full-stack React applications</li>
-                  <li>💡 Learned to solve real-world problems with code</li>
-                  <li>🎯 Discovered technology as a tool for impact</li>
+                  <li>◆ Designed complex ERDs for data modeling</li>
+                  <li>● Wrote advanced SQL queries for analysis</li>
+                  <li>■ Built interactive Power BI dashboards</li>
+                  <li>◇ Developed full-stack React applications</li>
+                  <li>★ Learned to solve real-world problems with code</li>
+                  <li>► Discovered technology as a tool for impact</li>
                 </ul>
               </div>
             )}
