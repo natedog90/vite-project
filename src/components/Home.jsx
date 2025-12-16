@@ -1,7 +1,19 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import LogCard from "./LogCard";
 import profilePhoto from "../assets/profile-photo.jpg";
+import {
+  Crown,
+  Briefcase,
+  Code,
+  Heart,
+  Target,
+  Camera,
+  Menu,
+  X,
+  Home as HomeIcon,
+  FileText,
+  Linkedin,
+} from "lucide-react";
 import "../App.css";
 
 function Home() {
@@ -13,17 +25,12 @@ function Home() {
 
   return (
     <>
-      <LogCard />
       <button
         className="hamburger-icon-home"
         onClick={toggleMenu}
         aria-label="Toggle menu"
       >
-        <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
-          <rect x="4" y="7" width="22" height="3" rx="1.5" fill="white" />
-          <rect x="4" y="13.5" width="22" height="3" rx="1.5" fill="white" />
-          <rect x="4" y="20" width="22" height="3" rx="1.5" fill="white" />
-        </svg>
+        <span style={{ fontSize: "2rem" }}>🍔</span>
       </button>
 
       <div className={`side-panel ${isMenuOpen ? "open" : ""}`}>
@@ -32,37 +39,27 @@ function Home() {
           onClick={toggleMenu}
           aria-label="Close menu"
         >
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="white"
-            strokeWidth="2"
-          >
-            <line x1="18" y1="6" x2="6" y2="18" />
-            <line x1="6" y1="6" x2="18" y2="18" />
-          </svg>
+          <X size={24} color="white" />
         </button>
         <div className="side-panel-content">
           <Link to="/" onClick={toggleMenu} className="panel-link">
-            <span className="link-icon">🏠</span>
+            <HomeIcon size={24} />
             Home
           </Link>
           <Link to="/leadership" onClick={toggleMenu} className="panel-link">
-            <span className="link-icon">👑</span>
+            <Crown size={24} />
             Leadership
           </Link>
           <Link to="/business" onClick={toggleMenu} className="panel-link">
-            <span className="link-icon">💼</span>
+            <Briefcase size={24} />
             Business
           </Link>
           <Link to="/tech" onClick={toggleMenu} className="panel-link">
-            <span className="link-icon">💻</span>
+            <Code size={24} />
             Tech
           </Link>
           <Link to="/wellness" onClick={toggleMenu} className="panel-link">
-            <span className="link-icon">🌱</span>
+            <Heart size={24} />
             Wellness
           </Link>
           <Link
@@ -70,15 +67,15 @@ function Home() {
             onClick={toggleMenu}
             className="panel-link"
           >
-            <span className="link-icon">🎯</span>
+            <Target size={24} />
             Career Planning
           </Link>
           <Link to="/resume" onClick={toggleMenu} className="panel-link">
-            <span className="link-icon">📄</span>
+            <FileText size={24} />
             Resume
           </Link>
           <Link to="/gallery" onClick={toggleMenu} className="panel-link">
-            <span className="link-icon">📸</span>
+            <Camera size={24} />
             Gallery
           </Link>
         </div>
@@ -108,11 +105,12 @@ function Home() {
                 />
               </div>
               <a
-                href="https://www.linkedin.com/in/Nathan-Jimenez-77"
+                href="https://www.linkedin.com/feed/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="cta-button secondary"
               >
+                <Linkedin size={20} style={{ marginRight: "0.5rem" }} />
                 Connect on LinkedIn
               </a>
             </div>
@@ -121,7 +119,7 @@ function Home() {
 
         <div className="section-grid">
           <Link to="/leadership" className="category-card leadership">
-            <div className="card-icon">👑</div>
+            <Crown size={56} className="card-icon-svg" />
             <h2>Leadership</h2>
             <p>
               Discover my journey as a leader at i.c.stars, where I learned to
@@ -130,7 +128,7 @@ function Home() {
           </Link>
 
           <Link to="/business" className="category-card business">
-            <div className="card-icon">💼</div>
+            <Briefcase size={56} className="card-icon-svg" />
             <h2>Business</h2>
             <p>
               Explore my experience with United Airlines, building dashboards
@@ -139,7 +137,7 @@ function Home() {
           </Link>
 
           <Link to="/tech" className="category-card tech">
-            <div className="card-icon">💻</div>
+            <Code size={56} className="card-icon-svg" />
             <h2>Tech</h2>
             <p>
               See how I use SQL, Power BI, and React to turn data into
@@ -148,7 +146,7 @@ function Home() {
           </Link>
 
           <Link to="/wellness" className="category-card wellness">
-            <div className="card-icon">🌱</div>
+            <Heart size={56} className="card-icon-svg" />
             <h2>Wellness</h2>
             <p>
               Learn about my commitment to mental health, self-care, and
@@ -157,7 +155,7 @@ function Home() {
           </Link>
 
           <Link to="/career-planning" className="category-card career">
-            <div className="card-icon">🎯</div>
+            <Target size={56} className="card-icon-svg" />
             <h2>Career Planning</h2>
             <p>
               Explore my professional roadmap, goals, and strategic vision for
@@ -166,7 +164,7 @@ function Home() {
           </Link>
 
           <Link to="/gallery" className="category-card gallery">
-            <div className="card-icon">📸</div>
+            <Camera size={56} className="card-icon-svg" />
             <h2>Gallery</h2>
             <p>
               View my photography portfolio capturing moments from Chicago and

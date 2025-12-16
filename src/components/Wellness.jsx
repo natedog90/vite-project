@@ -1,6 +1,17 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import LogCard from "./LogCard";
+import {
+  Menu,
+  X,
+  Home as HomeIcon,
+  Crown,
+  Briefcase,
+  Code,
+  Heart,
+  Target,
+  FileText,
+  Camera,
+} from "lucide-react";
 import "../App.css";
 
 function Wellness() {
@@ -17,17 +28,12 @@ function Wellness() {
 
   return (
     <>
-      <LogCard />
       <button
         className="hamburger-icon"
         onClick={toggleMenu}
         aria-label="Toggle menu"
       >
-        <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
-          <rect x="4" y="7" width="22" height="3" rx="1.5" fill="white" />
-          <rect x="4" y="13.5" width="22" height="3" rx="1.5" fill="white" />
-          <rect x="4" y="20" width="22" height="3" rx="1.5" fill="white" />
-        </svg>
+        <span style={{ fontSize: "2rem" }}>🍔</span>
       </button>
 
       <div className={`side-panel ${isMenuOpen ? "open" : ""}`}>
@@ -36,37 +42,27 @@ function Wellness() {
           onClick={toggleMenu}
           aria-label="Close menu"
         >
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="white"
-            strokeWidth="2"
-          >
-            <line x1="18" y1="6" x2="6" y2="18" />
-            <line x1="6" y1="6" x2="18" y2="18" />
-          </svg>
+          <X size={24} color="white" />
         </button>
         <div className="side-panel-content">
           <Link to="/" onClick={toggleMenu} className="panel-link">
-            <span className="link-icon">🏠</span>
+            <HomeIcon size={24} />
             Home
           </Link>
           <Link to="/leadership" onClick={toggleMenu} className="panel-link">
-            <span className="link-icon">👑</span>
+            <Crown size={24} />
             Leadership
           </Link>
           <Link to="/business" onClick={toggleMenu} className="panel-link">
-            <span className="link-icon">💼</span>
+            <Briefcase size={24} />
             Business
           </Link>
           <Link to="/tech" onClick={toggleMenu} className="panel-link">
-            <span className="link-icon">💻</span>
+            <Code size={24} />
             Tech
           </Link>
           <Link to="/wellness" onClick={toggleMenu} className="panel-link">
-            <span className="link-icon">🌱</span>
+            <Heart size={24} />
             Wellness
           </Link>
           <Link
@@ -74,15 +70,15 @@ function Wellness() {
             onClick={toggleMenu}
             className="panel-link"
           >
-            <span className="link-icon">🎯</span>
+            <Target size={24} />
             Career Planning
           </Link>
           <Link to="/resume" onClick={toggleMenu} className="panel-link">
-            <span className="link-icon">📄</span>
+            <FileText size={24} />
             Resume
           </Link>
           <Link to="/gallery" onClick={toggleMenu} className="panel-link">
-            <span className="link-icon">📸</span>
+            <Camera size={24} />
             Gallery
           </Link>
         </div>

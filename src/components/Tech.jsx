@@ -1,8 +1,22 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-import LogCard from "./LogCard";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
+import {
+  Menu,
+  X,
+  Home as HomeIcon,
+  Crown,
+  Briefcase,
+  Code,
+  Heart,
+  Target,
+  FileText,
+  Camera,
+  Database,
+  BarChart3,
+  FileSpreadsheet,
+} from "lucide-react";
 import "../App.css";
 
 function Tech() {
@@ -10,8 +24,8 @@ function Tech() {
   const [skills, setSkills] = useState({
     sql: 0,
     powerbi: 0,
+    excel: 0,
     react: 0,
-    javascript: 0,
   });
   const [expandedCard, setExpandedCard] = useState(null);
 
@@ -20,21 +34,55 @@ function Tech() {
   };
 
   const toggleCard = (cardName) => {
-    setExpandedCard(expandedCard === cardName ? null : cardName);
+    const newExpandedCard = expandedCard === cardName ? null : cardName;
+    setExpandedCard(newExpandedCard);
+
+    // Reset and animate skills when tech-overview card is opened
+    if (cardName === "tech-overview" && newExpandedCard === "tech-overview") {
+      setSkills({
+        sql: 0,
+        powerbi: 0,
+        excel: 0,
+        react: 0,
+      });
+
+      setTimeout(() => {
+        setSkills({
+          sql: 75,
+          powerbi: 70,
+          excel: 80,
+          react: 65,
+        });
+      }, 100);
+    }
   };
 
-  // Animate skill bars on mount
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setSkills({
-        sql: 85,
-        powerbi: 80,
-        react: 70,
-        javascript: 75,
-      });
-    }, 500);
-    return () => clearTimeout(timer);
-  }, []);
+  const techSkills = [
+    {
+      name: "SQL",
+      level: skills.sql,
+      icon: <Database size={24} color="white" />,
+      color: "#0078D4",
+    },
+    {
+      name: "Power BI",
+      level: skills.powerbi,
+      icon: <BarChart3 size={24} color="white" />,
+      color: "#F2C811",
+    },
+    {
+      name: "Excel",
+      level: skills.excel,
+      icon: <FileSpreadsheet size={24} color="white" />,
+      color: "#217346",
+    },
+    {
+      name: "React",
+      level: skills.react,
+      icon: <Code size={24} color="white" />,
+      color: "#61DAFB",
+    },
+  ];
 
   const sqlExample = `-- SQL Query from United Airlines Project
 SELECT 
@@ -46,18 +94,6 @@ FROM customer_feedback
 WHERE survey_date >= '2024-01-01'
 GROUP BY customer_id, sentiment_score, nps_category
 ORDER BY sentiment_score DESC;`;
-
-  const techStack = [
-    { name: "SQL", level: skills.sql, icon: "🗄️", color: "#00758F" },
-    { name: "Power BI", level: skills.powerbi, icon: "📊", color: "#F2C811" },
-    { name: "React", level: skills.react, icon: "⚛️", color: "#61DAFB" },
-    {
-      name: "JavaScript",
-      level: skills.javascript,
-      icon: "💛",
-      color: "#F7DF1E",
-    },
-  ];
 
   const projects = [
     {
@@ -114,17 +150,12 @@ ORDER BY sentiment_score DESC;`;
 
   return (
     <>
-      <LogCard />
       <button
         className="hamburger-icon"
         onClick={toggleMenu}
         aria-label="Toggle menu"
       >
-        <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
-          <rect x="4" y="7" width="22" height="3" rx="1.5" fill="white" />
-          <rect x="4" y="13.5" width="22" height="3" rx="1.5" fill="white" />
-          <rect x="4" y="20" width="22" height="3" rx="1.5" fill="white" />
-        </svg>
+        <Menu size={30} color="white" />
       </button>
 
       <div className={`side-panel ${isMenuOpen ? "open" : ""}`}>
@@ -133,37 +164,27 @@ ORDER BY sentiment_score DESC;`;
           onClick={toggleMenu}
           aria-label="Close menu"
         >
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="white"
-            strokeWidth="2"
-          >
-            <line x1="18" y1="6" x2="6" y2="18" />
-            <line x1="6" y1="6" x2="18" y2="18" />
-          </svg>
+          <X size={24} color="white" />
         </button>
         <div className="side-panel-content">
           <Link to="/" onClick={toggleMenu} className="panel-link">
-            <span className="link-icon">🏠</span>
+            <HomeIcon size={24} />
             Home
           </Link>
           <Link to="/leadership" onClick={toggleMenu} className="panel-link">
-            <span className="link-icon">👑</span>
+            <Crown size={24} />
             Leadership
           </Link>
           <Link to="/business" onClick={toggleMenu} className="panel-link">
-            <span className="link-icon">💼</span>
+            <Briefcase size={24} />
             Business
           </Link>
           <Link to="/tech" onClick={toggleMenu} className="panel-link">
-            <span className="link-icon">💻</span>
+            <Code size={24} />
             Tech
           </Link>
           <Link to="/wellness" onClick={toggleMenu} className="panel-link">
-            <span className="link-icon">🌱</span>
+            <Heart size={24} />
             Wellness
           </Link>
           <Link
@@ -171,15 +192,15 @@ ORDER BY sentiment_score DESC;`;
             onClick={toggleMenu}
             className="panel-link"
           >
-            <span className="link-icon">🎯</span>
+            <Target size={24} />
             Career Planning
           </Link>
           <Link to="/resume" onClick={toggleMenu} className="panel-link">
-            <span className="link-icon">📄</span>
+            <FileText size={24} />
             Resume
           </Link>
           <Link to="/gallery" onClick={toggleMenu} className="panel-link">
-            <span className="link-icon">📸</span>
+            <Camera size={24} />
             Gallery
           </Link>
         </div>
@@ -195,79 +216,56 @@ ORDER BY sentiment_score DESC;`;
         </div>
 
         <div className="page-content">
-          {/* Tech Stack Overview - Now at Top as Expandable Card */}
+          {/* Tech Stack Overview - Interactive Card */}
           <div className="content-card interactive-card">
             <div
               className="card-header-interactive"
-              onClick={() => toggleCard("techstack")}
+              onClick={() => toggleCard("tech-overview")}
             >
               <h2>Tech Stack Overview 💻</h2>
               <span className="expand-icon">
-                {expandedCard === "techstack" ? "−" : "+"}
+                {expandedCard === "tech-overview" ? "−" : "+"}
               </span>
             </div>
             <p>
-              Explore the technologies I've mastered and the milestones I've
-              achieved on my technical journey.
+              A comprehensive view of my technical skills, including proficiency
+              levels in SQL, Power BI, Excel, and React.
             </p>
-            {expandedCard === "techstack" && (
+            {expandedCard === "tech-overview" && (
               <div className="expanded-content">
-                <div className="dashboard-skills-wrapper">
-                  {/* Milestones Timeline on Left */}
-                  <div className="dashboard-section-left">
-                    <h3>Key Milestones</h3>
-                    <div className="milestones-timeline">
-                      {milestones.map((milestone, index) => (
-                        <div key={index} className="milestone-item">
-                          <div
-                            className="milestone-icon"
-                            style={{ backgroundColor: milestone.color }}
-                          >
-                            {milestone.icon}
-                          </div>
-                          <div className="milestone-content">
-                            <h4>{milestone.title}</h4>
-                            <p>{milestone.description}</p>
-                          </div>
+                <div className="tech-stack-grid">
+                  {techSkills.map((skill, index) => (
+                    <div key={index} className="skill-item">
+                      <div className="skill-header">
+                        <div
+                          className="skill-icon"
+                          style={{
+                            backgroundColor: `${skill.color}33`,
+                            border: `2px solid ${skill.color}`,
+                          }}
+                        >
+                          {skill.icon}
                         </div>
-                      ))}
+                        <span className="skill-name">{skill.name}</span>
+                        <span className="skill-percentage">{skill.level}%</span>
+                      </div>
+                      <div className="skill-bar">
+                        <div
+                          className="skill-fill"
+                          style={{
+                            width: `${skill.level}%`,
+                            backgroundColor: skill.color,
+                          }}
+                        ></div>
+                      </div>
                     </div>
-                  </div>
-
-                  {/* Tech Stack Skills on Right */}
-                  <div className="skills-section-right">
-                    <h3>Technical Skills</h3>
-                    <p>Technologies mastered during my journey:</p>
-                    <div className="tech-stack-grid">
-                      {techStack.map((tech, index) => (
-                        <div key={index} className="skill-item">
-                          <div className="skill-header">
-                            <span className="skill-icon">{tech.icon}</span>
-                            <span className="skill-name">{tech.name}</span>
-                            <span className="skill-percentage">
-                              {tech.level}%
-                            </span>
-                          </div>
-                          <div className="skill-bar">
-                            <div
-                              className="skill-fill"
-                              style={{
-                                width: `${tech.level}%`,
-                                backgroundColor: tech.color,
-                                transition: "width 1.5s ease-out",
-                              }}
-                            ></div>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
+                  ))}
                 </div>
               </div>
             )}
           </div>
 
-          {/* Featured Projects Section with Flip Cards */}
+          {/* Featured Projects */}
           <div className="content-card interactive-card">
             <div
               className="card-header-interactive"
@@ -278,36 +276,98 @@ ORDER BY sentiment_score DESC;`;
                 {expandedCard === "projects" ? "−" : "+"}
               </span>
             </div>
-            <p>Click on any project card to learn more about my work:</p>
+            <p>
+              Click on each project card to see more details and technologies
+              used.
+            </p>
             {expandedCard === "projects" && (
               <div className="expanded-content">
-                <div className="projects-grid">
-                  {projects.map((project, index) => (
-                    <div
-                      key={index}
-                      className={`flip-card ${
-                        flippedCards[index] ? "flipped" : ""
-                      }`}
-                      onClick={() => toggleFlip(index)}
-                    >
-                      <div className="flip-card-inner">
-                        <div className="flip-card-front">
-                          <h3>{project.title}</h3>
-                          <p className="flip-hint">Click to learn more →</p>
-                        </div>
-                        <div className="flip-card-back">
-                          <p>{project.description}</p>
-                          <div className="tech-tags">
-                            {project.tech.map((t, i) => (
-                              <span key={i} className="tech-tag">
-                                {t}
-                              </span>
-                            ))}
-                          </div>
-                        </div>
+                <div className="flip-cards-container">
+                  {/* United Airlines Dashboard Card */}
+                  <div
+                    className={`flip-card ${
+                      flippedCards.united ? "flipped" : ""
+                    }`}
+                    onClick={() => toggleFlip("united")}
+                  >
+                    <div className="flip-card-inner">
+                      <div className="flip-card-front">
+                        <h3>✈️ United Airlines Dashboard</h3>
+                        <p>Interactive Power BI analytics platform</p>
+                        <span className="flip-hint">
+                          Click to see details →
+                        </span>
+                      </div>
+                      <div className="flip-card-back">
+                        <h3>Technologies Used</h3>
+                        <ul>
+                          <li>📊 Power BI</li>
+                          <li>🗄️ SQL Server</li>
+                          <li>📈 DAX</li>
+                          <li>🔄 ETL Processes</li>
+                        </ul>
+                        <p className="project-description">
+                          Built comprehensive dashboards tracking customer
+                          sentiment and NPS scores, integrating multiple data
+                          sources.
+                        </p>
                       </div>
                     </div>
-                  ))}
+                  </div>
+
+                  {/* Portfolio Website Card */}
+                  <div
+                    className={`flip-card ${
+                      flippedCards.portfolio ? "flipped" : ""
+                    }`}
+                    onClick={() => toggleFlip("portfolio")}
+                  >
+                    <div className="flip-card-inner">
+                      <div className="flip-card-front">
+                        <h3>💼 Portfolio Website</h3>
+                        <p>Modern React-based personal portfolio</p>
+                        <span className="flip-hint">
+                          Click to see details →
+                        </span>
+                      </div>
+                      <div className="flip-card-back">
+                        <h3>Technologies Used</h3>
+                        <ul>
+                          <li>⚛️ React</li>
+                          <li>🎨 CSS3</li>
+                          <li>🔀 React Router</li>
+                          <li>📱 Responsive Design</li>
+                        </ul>
+                        <p className="project-description">
+                          Interactive portfolio showcasing my journey in tech,
+                          leadership, and personal growth.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Power BI Report Embed */}
+                <div className="powerbi-embed-container">
+                  <h3
+                    style={{
+                      color: "white",
+                      marginBottom: "1rem",
+                      textAlign: "center",
+                    }}
+                  >
+                    📊 Innovation Dashboard
+                  </h3>
+                  <div className="powerbi-iframe-wrapper">
+                    <iframe
+                      title="innovate"
+                      width="100%"
+                      height="541.25"
+                      src="https://app.powerbi.com/reportEmbed?reportId=0daf3311-3399-4781-b328-b2cd8f2bc6bf&autoAuth=true&ctid=88227c99-d157-4dbe-8e33-d8b3fcc29577"
+                      frameBorder="0"
+                      allowFullScreen={true}
+                    ></iframe>
+                  </div>
                 </div>
               </div>
             )}

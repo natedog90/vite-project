@@ -1,9 +1,20 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-import LogCard from "./LogCard";
 import meetTheTeamPhoto from "../assets/meet-the-team.jpg";
 import teaHostPhoto from "../assets/tea-host.jpg";
 import cohortSoundtrackPhoto from "../assets/cohort-soundtrack.jpg";
+import {
+  Menu,
+  X,
+  Home as HomeIcon,
+  Crown,
+  Briefcase,
+  Code,
+  Heart,
+  Target,
+  FileText,
+  Camera,
+} from "lucide-react";
 import "../App.css";
 
 function Leadership() {
@@ -22,22 +33,33 @@ function Leadership() {
   };
 
   const toggleCard = (cardName) => {
-    setExpandedCard(expandedCard === cardName ? null : cardName);
-  };
+    const newExpandedCard = expandedCard === cardName ? null : cardName;
+    setExpandedCard(newExpandedCard);
 
-  // Animate skill bars on mount
-  useEffect(() => {
-    const timer = setTimeout(() => {
+    // Reset and animate skills when leadership-overview card is opened
+    if (
+      cardName === "leadership-overview" &&
+      newExpandedCard === "leadership-overview"
+    ) {
       setSkills({
-        empathy: 90,
-        communication: 85,
-        patience: 80,
-        creativity: 88,
-        encouragement: 92,
+        empathy: 0,
+        communication: 0,
+        patience: 0,
+        creativity: 0,
+        encouragement: 0,
       });
-    }, 500);
-    return () => clearTimeout(timer);
-  }, []);
+
+      setTimeout(() => {
+        setSkills({
+          empathy: 90,
+          communication: 85,
+          patience: 80,
+          creativity: 88,
+          encouragement: 92,
+        });
+      }, 100);
+    }
+  };
 
   const leadershipSkills = [
     {
@@ -101,17 +123,12 @@ function Leadership() {
 
   return (
     <>
-      <LogCard />
       <button
         className="hamburger-icon"
         onClick={toggleMenu}
         aria-label="Toggle menu"
       >
-        <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
-          <rect x="4" y="7" width="22" height="3" rx="1.5" fill="white" />
-          <rect x="4" y="13.5" width="22" height="3" rx="1.5" fill="white" />
-          <rect x="4" y="20" width="22" height="3" rx="1.5" fill="white" />
-        </svg>
+        <span style={{ fontSize: "2rem" }}>🍔</span>
       </button>
 
       <div className={`side-panel ${isMenuOpen ? "open" : ""}`}>
@@ -120,37 +137,27 @@ function Leadership() {
           onClick={toggleMenu}
           aria-label="Close menu"
         >
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="white"
-            strokeWidth="2"
-          >
-            <line x1="18" y1="6" x2="6" y2="18" />
-            <line x1="6" y1="6" x2="18" y2="18" />
-          </svg>
+          <X size={24} color="white" />
         </button>
         <div className="side-panel-content">
           <Link to="/" onClick={toggleMenu} className="panel-link">
-            <span className="link-icon">🏠</span>
+            <HomeIcon size={24} />
             Home
           </Link>
           <Link to="/leadership" onClick={toggleMenu} className="panel-link">
-            <span className="link-icon">👑</span>
+            <Crown size={24} />
             Leadership
           </Link>
           <Link to="/business" onClick={toggleMenu} className="panel-link">
-            <span className="link-icon">💼</span>
+            <Briefcase size={24} />
             Business
           </Link>
           <Link to="/tech" onClick={toggleMenu} className="panel-link">
-            <span className="link-icon">💻</span>
+            <Code size={24} />
             Tech
           </Link>
           <Link to="/wellness" onClick={toggleMenu} className="panel-link">
-            <span className="link-icon">🌱</span>
+            <Heart size={24} />
             Wellness
           </Link>
           <Link
@@ -158,12 +165,16 @@ function Leadership() {
             onClick={toggleMenu}
             className="panel-link"
           >
-            <span className="link-icon">🎯</span>
+            <Target size={24} />
             Career Planning
           </Link>
           <Link to="/resume" onClick={toggleMenu} className="panel-link">
-            <span className="link-icon">📄</span>
+            <FileText size={24} />
             Resume
+          </Link>
+          <Link to="/gallery" onClick={toggleMenu} className="panel-link">
+            <Camera size={24} />
+            Gallery
           </Link>
         </div>
       </div>
@@ -178,6 +189,77 @@ function Leadership() {
         </div>
 
         <div className="page-content">
+          {/* Leadership Journey Overview - Now at Top with Expand */}
+          <div className="content-card interactive-card">
+            <div
+              className="card-header-interactive"
+              onClick={() => toggleCard("leadership-overview")}
+            >
+              <h2>Leadership Journey Overview 💫</h2>
+              <span className="expand-icon">
+                {expandedCard === "leadership-overview" ? "−" : "+"}
+              </span>
+            </div>
+            <p>
+              A comprehensive view of my leadership journey, including key
+              milestones and the gifts that define my mission to love.
+            </p>
+            {expandedCard === "leadership-overview" && (
+              <div className="expanded-content">
+                <div className="dashboard-skills-wrapper">
+                  {/* Milestones Timeline on Left */}
+                  <div className="dashboard-section-left">
+                    <h3>Key Milestones</h3>
+                    <div className="milestones-timeline">
+                      {milestones.map((milestone, index) => (
+                        <div key={index} className="milestone-item">
+                          <div
+                            className="milestone-icon"
+                            style={{ backgroundColor: milestone.color }}
+                          >
+                            {milestone.icon}
+                          </div>
+                          <div className="milestone-content">
+                            <h4>{milestone.title}</h4>
+                            <p>{milestone.description}</p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Leadership Skills on Right */}
+                  <div className="skills-section-right">
+                    <h3>Leadership Gifts</h3>
+                    <p>The qualities that define my mission to love:</p>
+                    <div className="tech-stack-grid">
+                      {leadershipSkills.map((skill, index) => (
+                        <div key={index} className="skill-item">
+                          <div className="skill-header">
+                            <span className="skill-icon">{skill.icon}</span>
+                            <span className="skill-name">{skill.name}</span>
+                            <span className="skill-percentage">
+                              {skill.level}%
+                            </span>
+                          </div>
+                          <div className="skill-bar">
+                            <div
+                              className="skill-fill"
+                              style={{
+                                width: `${skill.level}%`,
+                                backgroundColor: skill.color,
+                              }}
+                            ></div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+
           {/* Team Week */}
           <div className="content-card united-card interactive-card">
             <div className="card-content-wrapper">
@@ -381,60 +463,6 @@ function Leadership() {
                 </p>
               </div>
             )}
-          </div>
-
-          {/* Leadership Journey Overview - Moved to Bottom */}
-          <div className="content-card dashboard-skills-card">
-            <h2>Leadership Journey Overview</h2>
-            <div className="dashboard-skills-wrapper">
-              {/* Milestones Timeline on Left */}
-              <div className="dashboard-section-left">
-                <h3>Key Milestones</h3>
-                <div className="milestones-timeline">
-                  {milestones.map((milestone, index) => (
-                    <div key={index} className="milestone-item">
-                      <div
-                        className="milestone-icon"
-                        style={{ backgroundColor: milestone.color }}
-                      >
-                        {milestone.icon}
-                      </div>
-                      <div className="milestone-content">
-                        <h4>{milestone.title}</h4>
-                        <p>{milestone.description}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Leadership Skills on Right */}
-              <div className="skills-section-right">
-                <h3>Leadership Gifts</h3>
-                <p>The qualities that define my mission to love:</p>
-                <div className="tech-stack-grid">
-                  {leadershipSkills.map((skill, index) => (
-                    <div key={index} className="skill-item">
-                      <div className="skill-header">
-                        <span className="skill-icon">{skill.icon}</span>
-                        <span className="skill-name">{skill.name}</span>
-                        <span className="skill-percentage">{skill.level}%</span>
-                      </div>
-                      <div className="skill-bar">
-                        <div
-                          className="skill-fill"
-                          style={{
-                            width: `${skill.level}%`,
-                            backgroundColor: skill.color,
-                            transition: "width 1.5s ease-out",
-                          }}
-                        ></div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>

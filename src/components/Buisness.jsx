@@ -1,9 +1,28 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import LogCard from "./LogCard";
 import unitedTeamPhoto from "../assets/united-airlines-team.jpg";
 import learningGrowthPhoto from "../assets/learning-growth-team.jpg";
 import industryExposurePhoto from "../assets/industry-exposure.jpg";
+import {
+  Menu,
+  X,
+  Home as HomeIcon,
+  Crown,
+  Briefcase,
+  Code,
+  Heart,
+  Target,
+  FileText,
+  Camera,
+  Plane,
+  Users,
+  Building2,
+  TrendingUp,
+  BarChart3,
+  Lightbulb,
+  ClipboardList,
+  Handshake,
+} from "lucide-react";
 import "../App.css";
 
 function Business() {
@@ -21,45 +40,52 @@ function Business() {
   };
 
   const toggleCard = (cardName) => {
-    setExpandedCard(expandedCard === cardName ? null : cardName);
-  };
+    const newExpandedCard = expandedCard === cardName ? null : cardName;
+    setExpandedCard(newExpandedCard);
 
-  // Animate skill bars on mount
-  useEffect(() => {
-    const timer = setTimeout(() => {
+    // Reset and animate skills when analytics card is opened
+    if (cardName === "analytics" && newExpandedCard === "analytics") {
       setSkills({
-        dataAnalysis: 85,
-        businessIntelligence: 80,
-        projectManagement: 75,
-        stakeholderEngagement: 80,
+        dataAnalysis: 0,
+        businessIntelligence: 0,
+        projectManagement: 0,
+        stakeholderEngagement: 0,
       });
-    }, 500);
-    return () => clearTimeout(timer);
-  }, []);
+
+      setTimeout(() => {
+        setSkills({
+          dataAnalysis: 85,
+          businessIntelligence: 80,
+          projectManagement: 75,
+          stakeholderEngagement: 80,
+        });
+      }, 100);
+    }
+  };
 
   const businessSkills = [
     {
       name: "Data Analysis",
       level: skills.dataAnalysis,
-      icon: "📊",
+      icon: <BarChart3 size={24} color="white" />,
       color: "#10B981",
     },
     {
       name: "Business Intelligence",
       level: skills.businessIntelligence,
-      icon: "💡",
+      icon: <Lightbulb size={24} color="white" />,
       color: "#3B82F6",
     },
     {
       name: "Project Management",
       level: skills.projectManagement,
-      icon: "📋",
+      icon: <ClipboardList size={24} color="white" />,
       color: "#8B5CF6",
     },
     {
       name: "Stakeholder Engagement",
       level: skills.stakeholderEngagement,
-      icon: "🤝",
+      icon: <Handshake size={24} color="white" />,
       color: "#F59E0B",
     },
   ];
@@ -67,25 +93,25 @@ function Business() {
   const milestones = [
     {
       title: "United Airlines",
-      icon: "✈️",
+      icon: <Plane size={24} color="white" />,
       description: "Building data-driven solutions",
       color: "#3B82F6",
     },
     {
       title: "Team Collaboration",
-      icon: "👥",
+      icon: <Users size={24} color="white" />,
       description: "Learning through teamwork",
       color: "#10B981",
     },
     {
       title: "Industry Visits",
-      icon: "🏢",
+      icon: <Building2 size={24} color="white" />,
       description: "Exposure to tech leaders",
       color: "#F59E0B",
     },
     {
       title: "Data Impact",
-      icon: "📈",
+      icon: <TrendingUp size={24} color="white" />,
       description: "Creating meaningful insights",
       color: "#EF4444",
     },
@@ -93,17 +119,12 @@ function Business() {
 
   return (
     <>
-      <LogCard />
       <button
         className="hamburger-icon"
         onClick={toggleMenu}
         aria-label="Toggle menu"
       >
-        <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
-          <rect x="4" y="7" width="22" height="3" rx="1.5" fill="white" />
-          <rect x="4" y="13.5" width="22" height="3" rx="1.5" fill="white" />
-          <rect x="4" y="20" width="22" height="3" rx="1.5" fill="white" />
-        </svg>
+        <span style={{ fontSize: "2rem" }}>🍔</span>
       </button>
 
       <div className={`side-panel ${isMenuOpen ? "open" : ""}`}>
@@ -112,37 +133,27 @@ function Business() {
           onClick={toggleMenu}
           aria-label="Close menu"
         >
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="white"
-            strokeWidth="2"
-          >
-            <line x1="18" y1="6" x2="6" y2="18" />
-            <line x1="6" y1="6" x2="18" y2="18" />
-          </svg>
+          <X size={24} color="white" />
         </button>
         <div className="side-panel-content">
           <Link to="/" onClick={toggleMenu} className="panel-link">
-            <span className="link-icon">🏠</span>
+            <HomeIcon size={24} />
             Home
           </Link>
           <Link to="/leadership" onClick={toggleMenu} className="panel-link">
-            <span className="link-icon">👑</span>
+            <Crown size={24} />
             Leadership
           </Link>
           <Link to="/business" onClick={toggleMenu} className="panel-link">
-            <span className="link-icon">💼</span>
+            <Briefcase size={24} />
             Business
           </Link>
           <Link to="/tech" onClick={toggleMenu} className="panel-link">
-            <span className="link-icon">💻</span>
+            <Code size={24} />
             Tech
           </Link>
           <Link to="/wellness" onClick={toggleMenu} className="panel-link">
-            <span className="link-icon">🌱</span>
+            <Heart size={24} />
             Wellness
           </Link>
           <Link
@@ -150,15 +161,15 @@ function Business() {
             onClick={toggleMenu}
             className="panel-link"
           >
-            <span className="link-icon">🎯</span>
+            <Target size={24} />
             Career Planning
           </Link>
           <Link to="/resume" onClick={toggleMenu} className="panel-link">
-            <span className="link-icon">📄</span>
+            <FileText size={24} />
             Resume
           </Link>
           <Link to="/gallery" onClick={toggleMenu} className="panel-link">
-            <span className="link-icon">📸</span>
+            <Camera size={24} />
             Gallery
           </Link>
         </div>
@@ -174,6 +185,85 @@ function Business() {
         </div>
 
         <div className="page-content">
+          {/* Business Analytics Overview - Moved to Top with Expand Icon */}
+          <div className="content-card interactive-card">
+            <div
+              className="card-header-interactive"
+              onClick={() => toggleCard("analytics")}
+            >
+              <h2>Business Analytics Overview 📊</h2>
+              <span className="expand-icon">
+                {expandedCard === "analytics" ? "−" : "+"}
+              </span>
+            </div>
+            <p>
+              Explore the key milestones and skills I developed during my
+              business experience at i.c.stars and United Airlines.
+            </p>
+            {expandedCard === "analytics" && (
+              <div className="expanded-content">
+                <div className="dashboard-skills-wrapper">
+                  {/* Milestones Timeline on Left */}
+                  <div className="dashboard-section-left">
+                    <h3>Key Milestones</h3>
+                    <div className="milestones-timeline">
+                      {milestones.map((milestone, index) => (
+                        <div key={index} className="milestone-item">
+                          <div
+                            className="milestone-icon"
+                            style={{ backgroundColor: milestone.color }}
+                          >
+                            {milestone.icon}
+                          </div>
+                          <div className="milestone-content">
+                            <h4>{milestone.title}</h4>
+                            <p>{milestone.description}</p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Skills on Right */}
+                  <div className="skills-section-right">
+                    <h3>Business Skills</h3>
+                    <p>Key competencies developed:</p>
+                    <div className="tech-stack-grid">
+                      {businessSkills.map((skill, index) => (
+                        <div key={index} className="skill-item">
+                          <div className="skill-header">
+                            <div
+                              className="skill-icon"
+                              style={{
+                                backgroundColor: `${skill.color}33`,
+                                border: `2px solid ${skill.color}`,
+                              }}
+                            >
+                              {skill.icon}
+                            </div>
+                            <span className="skill-name">{skill.name}</span>
+                            <span className="skill-percentage">
+                              {skill.level}%
+                            </span>
+                          </div>
+                          <div className="skill-bar">
+                            <div
+                              className="skill-fill"
+                              style={{
+                                width: `${skill.level}%`,
+                                backgroundColor: skill.color,
+                              }}
+                            ></div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+
           {/* United Airlines Project */}
           <div className="content-card united-card interactive-card">
             <div className="card-content-wrapper">
@@ -360,60 +450,6 @@ function Business() {
                 </p>
               </div>
             )}
-          </div>
-
-          {/* Business Analytics Overview - Moved to Bottom */}
-          <div className="content-card dashboard-skills-card">
-            <h2>Business Analytics Overview</h2>
-            <div className="dashboard-skills-wrapper">
-              {/* Milestones Timeline on Left */}
-              <div className="dashboard-section-left">
-                <h3>Key Milestones</h3>
-                <div className="milestones-timeline">
-                  {milestones.map((milestone, index) => (
-                    <div key={index} className="milestone-item">
-                      <div
-                        className="milestone-icon"
-                        style={{ backgroundColor: milestone.color }}
-                      >
-                        {milestone.icon}
-                      </div>
-                      <div className="milestone-content">
-                        <h4>{milestone.title}</h4>
-                        <p>{milestone.description}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Skills on Right */}
-              <div className="skills-section-right">
-                <h3>Business Skills</h3>
-                <p>Key competencies developed:</p>
-                <div className="tech-stack-grid">
-                  {businessSkills.map((skill, index) => (
-                    <div key={index} className="skill-item">
-                      <div className="skill-header">
-                        <span className="skill-icon">{skill.icon}</span>
-                        <span className="skill-name">{skill.name}</span>
-                        <span className="skill-percentage">{skill.level}%</span>
-                      </div>
-                      <div className="skill-bar">
-                        <div
-                          className="skill-fill"
-                          style={{
-                            width: `${skill.level}%`,
-                            backgroundColor: skill.color,
-                            transition: "width 1.5s ease-out",
-                          }}
-                        ></div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>

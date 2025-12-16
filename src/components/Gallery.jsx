@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import LogCard from "./LogCard";
 import galleryImage1 from "../assets/DSC_5735.jpg";
 import galleryImage2 from "../assets/DSC_1492_1-01.jpeg";
 import galleryImage3 from "../assets/DSC_0060.jpg";
@@ -19,6 +18,18 @@ import chicagoWaterSkyline from "../assets/chicago-water-skyline.jpg";
 import chicagoFireworks from "../assets/chicago-fireworks.jpg";
 import chicagoParkSkyline from "../assets/chicago-park-skyline.jpg";
 import chicagoBean from "../assets/chicago-bean.jpg";
+import {
+  Menu,
+  X,
+  Home as HomeIcon,
+  Crown,
+  Briefcase,
+  Code,
+  Heart,
+  Target,
+  FileText,
+  Camera,
+} from "lucide-react";
 import "../App.css";
 
 const images = [
@@ -155,17 +166,12 @@ function Gallery() {
 
   return (
     <>
-      <LogCard />
       <button
         className="hamburger-icon"
         onClick={toggleMenu}
         aria-label="Toggle menu"
       >
-        <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
-          <rect x="4" y="7" width="22" height="3" rx="1.5" fill="white" />
-          <rect x="4" y="13.5" width="22" height="3" rx="1.5" fill="white" />
-          <rect x="4" y="20" width="22" height="3" rx="1.5" fill="white" />
-        </svg>
+        <span style={{ fontSize: "2rem" }}>🍔</span>
       </button>
 
       <div className={`side-panel ${isMenuOpen ? "open" : ""}`}>
@@ -174,37 +180,27 @@ function Gallery() {
           onClick={toggleMenu}
           aria-label="Close menu"
         >
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="white"
-            strokeWidth="2"
-          >
-            <line x1="18" y1="6" x2="6" y2="18" />
-            <line x1="6" y1="6" x2="18" y2="18" />
-          </svg>
+          <X size={24} color="white" />
         </button>
         <div className="side-panel-content">
           <Link to="/" onClick={toggleMenu} className="panel-link">
-            <span className="link-icon">🏠</span>
+            <HomeIcon size={24} />
             Home
           </Link>
           <Link to="/leadership" onClick={toggleMenu} className="panel-link">
-            <span className="link-icon">👑</span>
+            <Crown size={24} />
             Leadership
           </Link>
           <Link to="/business" onClick={toggleMenu} className="panel-link">
-            <span className="link-icon">💼</span>
+            <Briefcase size={24} />
             Business
           </Link>
           <Link to="/tech" onClick={toggleMenu} className="panel-link">
-            <span className="link-icon">💻</span>
+            <Code size={24} />
             Tech
           </Link>
           <Link to="/wellness" onClick={toggleMenu} className="panel-link">
-            <span className="link-icon">🌱</span>
+            <Heart size={24} />
             Wellness
           </Link>
           <Link
@@ -212,15 +208,15 @@ function Gallery() {
             onClick={toggleMenu}
             className="panel-link"
           >
-            <span className="link-icon">🎯</span>
+            <Target size={24} />
             Career Planning
           </Link>
           <Link to="/resume" onClick={toggleMenu} className="panel-link">
-            <span className="link-icon">📄</span>
+            <FileText size={24} />
             Resume
           </Link>
           <Link to="/gallery" onClick={toggleMenu} className="panel-link">
-            <span className="link-icon">📸</span>
+            <Camera size={24} />
             Gallery
           </Link>
         </div>
@@ -231,7 +227,7 @@ function Gallery() {
       <div className="page-container">
         <div className="page-header">
           <h1 className="page-hero-title">
-             <span className="highlight">Photography Gallery</span>
+            <span className="highlight">Photography Gallery</span>
           </h1>
         </div>
 
