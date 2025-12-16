@@ -342,7 +342,7 @@ ORDER BY sentiment_score DESC;`;
                       textAlign: "center",
                     }}
                   >
-                    ■ Innovation Dashboard
+                    📊  Innovation Dashboard
                   </h3>
                   <div className="powerbi-iframe-wrapper">
                     <iframe
