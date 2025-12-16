@@ -242,7 +242,7 @@ function Gallery() {
             <h2>My Photography</h2>
             <p>
               Welcome to my photography gallery. Here you will find a sample
-              size of some of my work over the Yearsgit. Click on any image to view
+              size of some of my work over the Years. Click on any image to view
               it in full size and use the slideshow feature to enjoy the
               collection.
             </p>
