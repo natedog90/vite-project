@@ -74,7 +74,7 @@ body {
   .page-header {
     text-align: center;
     padding: 1rem;
-    margin-top: 3rem; /* Add space for hamburger on mobile */
+    margin-top: 5rem; /* Increased space for hamburger on mobile */
   }
 
   .hamburger-icon,
@@ -461,6 +461,13 @@ body {
   margin: 0 auto;
 }
 
+@media (max-width: 768px) {
+  .cta-buttons {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+}
+
 .cta-button {
   padding: 1rem 2.5rem;
   border-radius: 50px;
@@ -514,6 +521,7 @@ body {
   .cta-buttons {
     flex-direction: column;
     gap: 1rem;
+    align-items: center;
   }
 
   .cta-button.primary,
@@ -523,12 +531,12 @@ body {
   }
 
   .profile-photo-container {
-    margin: 1.5rem 0;
+    margin: 1.5rem auto;
   }
 
   .hero-section {
     padding: 1rem 1rem;
-    padding-top: 1rem;
+    padding-top: 6rem;
   }
 }
 
@@ -870,12 +878,12 @@ body {
 
   .cta-buttons {
     flex-direction: column;
-    align-items: stretch;
+    align-items: center;
   }
 
   .hero-section {
     padding: 1rem 1rem;
-    padding-top: 1rem;
+    padding-top: 6rem;
   }
 }
 
